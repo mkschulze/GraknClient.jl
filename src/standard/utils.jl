@@ -43,3 +43,4 @@ function copy_to_proto(from_object, to_proto_struct::Type{T}) where {T<: ProtoTy
     end
     return result_proto
 end
+

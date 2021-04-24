@@ -111,6 +111,8 @@ let b = GraknClient.RoleTypeRequestBuilder
     end
 
     # test assertion for scope requirement
+
+    @test_broken b.proto_role_type(label, Proto.Type_Encoding.THING_TYPE)
     @test_throws AssertionError b.proto_role_type(label, Proto.Type_Encoding.THING_TYPE)
 
     @test hasproperty(b.get_relation_types_req(label).type_req, :role_type_get_relation_types_req)

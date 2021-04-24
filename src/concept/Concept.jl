@@ -47,6 +47,11 @@ end
 
 Wrapper type that encapsulates a concept and transaction.
 """
+as_remote(x::T, t) where {T <: AbstractConcept} = Remote{T}(x, t)
+
+# TODO check with Frank about the transaction API
+# execute(x::Remote{T}, request::Proto.Transaction_Req) = execute(x.transaction, request).type_res
+# stream(x::Remote{T}, request::Proto.Transaction_Req) = execute(x.transaction, request)  # iterator?
 struct Remote{D <: AbstractConcept, T <: AbstractCoreTransaction}
     concept::D
     transaction::T
