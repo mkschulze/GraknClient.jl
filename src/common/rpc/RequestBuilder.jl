@@ -187,8 +187,11 @@ using ..TypeDBClient: Proto, Label
 
 # Ignore linter error here
 function _treq(label, scope; kwargs...)
-    return Proto.Transaction_Req(
+    scope !== nothing && return Proto.Transaction_Req(
         type_req = Proto.Type_Req(; label, scope, kwargs...)
+    )
+    return Proto.Transaction_Req(
+        type_req = Proto.Type_Req(; label, kwargs...)
     )
 end
 

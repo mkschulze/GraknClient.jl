@@ -30,8 +30,8 @@ let b = TypeDBClient.TransactionRequestBuilder
     let ts = [Proto.Transaction_Req()]
         @test b.client_msg(ts).reqs == ts
     end
-    let id = uuid4(), r = b.stream_req(id)
-        @test r.req_id == string(id)
+    let id = bytes(uuid4()), r = b.stream_req(id)
+        @test r.req_id == id
         @test hasproperty(r, :stream_req)
     end
     let id = [0x01], ty = Int32(0), options = no_option, ms = 0,
@@ -115,6 +115,25 @@ let b = TypeDBClient.RoleTypeRequestBuilder
 
     @test hasproperty(b.get_relation_types_req(label).type_req, :role_type_get_relation_types_req)
     @test hasproperty(b.get_players_req(label).type_req, :role_type_get_players_req)
+end
+
+@testset "ThingRequestBuilder" begin
+    let b = TypeDBClient.ThingRequestBuilder
+        id_bytes = bytes(uuid4())
+        prot_thing = b.proto_thing(id_bytes)
+        @test typeof(prot_thing) == Proto.Thing
+        @test prot_thing.iid == id_bytes
+
+        prot_thing = b.proto_thing(string(id_bytes))
+        @test typeof(prot_thing) == Proto.Thing
+        @test prot_thing.iid == id_bytes
+
+        thing_req = b._thing_req(string(id_bytes))
+        @test typeof(thing_req) == Proto.Transaction_Req
+        @test thing_req.thing_req.iid == id_bytes
+
+        infered = is_inferred_req(string(id_bytes))
+    end
 end
 
 # TODO Need to continue developing unit tests for these
