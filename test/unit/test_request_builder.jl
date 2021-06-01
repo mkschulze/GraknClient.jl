@@ -132,7 +132,9 @@ end
         @test typeof(thing_req) == Proto.Transaction_Req
         @test thing_req.thing_req.iid == id_bytes
 
-        infered = is_inferred_req(string(id_bytes))
+        infered = b.is_inferred_req(string(id_bytes))
+        @test typeof(thing_req) == Proto.Transaction_Req
+        # @test typeof(thing_req.thing_req.thing_is_inferred_req) == Proto.
     end
 end
 
