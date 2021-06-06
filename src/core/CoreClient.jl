@@ -9,9 +9,11 @@ mutable struct CoreClient <: AbstractCoreClient
     sessions::Dict{Bytes, Optional{AbstractCoreSession}}
 end
 
-Base.show(io::IO, core_client::CoreClient) = print(io, "CoreClient(address: $(core_client.address):$(core_client.port))")
+function Base.show(io::IO, core_client::CoreClient)
+    print(io, "CoreClient(address: $(core_client.address):$(core_client.port))")
+end
 
-function CoreClient(address::String, port::Int)
+function CoreClient(address::String, port::Int = 1729)
     channel = gRPCChannel(address * ":" * string(port))
     stub = Core_TypeDBStub(channel)
     databaseMgr = CoreDatabaseManager()
@@ -21,4 +23,6 @@ end
 
 is_cluster(client::AbstractCoreClient) = false
 
-remove_session(client::AbstractCoreClient, session::AbstractCoreSession) = delete!(client.sessions, session.sessionID)
+function remove_session(client::AbstractCoreClient, session::AbstractCoreSession)
+    delete!(client.sessions, session.sessionID)
+end

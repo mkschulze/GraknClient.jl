@@ -1,0 +1,14 @@
+# How to run this script:
+#   typedb console --script=social_network.tql 
+
+database create social_network
+
+transaction social_network schema write
+source schema.tql
+commit
+
+transaction social_network data write
+source data.tql
+commit
+
+# database delete social_network

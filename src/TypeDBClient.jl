@@ -19,6 +19,7 @@ using Dates
 using DataStructures
 using gRPCClient
 using Pretend: Pretend, @mockable
+using ProtoBuf: which_oneof
 using Sockets
 using UUIDs: UUID, uuid4
 
@@ -75,6 +76,8 @@ include("concept/thing/Entity.jl")
 include("concept/thing/Relation.jl")
 include("concept/thing/Thing.jl")
 
+include("concept/ConceptManager.jl")
+
 include("concept/answer/ConceptMap.jl")
 include("concept/answer/ConceptMapGroup.jl")
 include("concept/answer/NumericGroup.jl")
@@ -107,10 +110,7 @@ include("common/exception/gRPC_Result_Handling.jl")
 
 # precompiling section
 include("precompile.jl")
-
-export contains_database
-
-# export  Session, Transaction
+include("exports.jl")
 
 ####### pretty printing section ##################
 

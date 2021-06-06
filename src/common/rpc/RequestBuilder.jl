@@ -326,15 +326,17 @@ function unset_plays_req(
     )
 end
 
-# Porting note: the order of `keys_only` and `value_type` are swapped
+# Porting note: keys_only is defaulted to false
 function get_owns_req(
     label::Label,
-    keys_only::Bool,
-    value_type::Optional{EnumType} = nothing
+    value_type::Optional{EnumType} = nothing,
+    keys_only::Bool = false
 )
-    return _treq(label.name, label.scope;
-        thing_type_get_owns_req = Proto.ThingType_GetOwns_Req(; keys_only, value_type)
-    )
+    # TODO this code can be simplified later (ProtoBuf PR#77)
+    thing_type_get_owns_req = value_type === nothing ?
+        Proto.ThingType_GetOwns_Req(; keys_only) :
+        Proto.ThingType_GetOwns_Req(; keys_only, value_type)
+    return _treq(label.name, label.scope; thing_type_get_owns_req)
 end
 
 # Porting note: the order of `is_key` is moved upfront
@@ -344,11 +346,17 @@ function set_owns_req(
     attribute_type::Proto.AttributeType,
     overridden_type::Optional{Proto.AttributeType} = nothing
 )
-    return _treq(label.name, label.scope;
-        thing_type_set_owns_req = Proto.ThingType_SetOwns_Req(;
-            is_key, attribute_type, overridden_type
-        )
-    )
+    # TODO this code can be simplified later (ProtoBuf PR#77)
+    thing_type_set_owns_req = overridden_type === nothing ?
+        Proto.ThingType_SetOwns_Req(; is_key, attribute_type) :
+        Proto.ThingType_SetOwns_Req(; is_key, attribute_type, overridden_type)
+    return _treq(label.name, label.scope; thing_type_set_owns_req)
+
+    # return _treq(label.name, label.scope;
+    #     thing_type_set_owns_req = Proto.ThingType_SetOwns_Req(;
+    #         is_key, attribute_type, overridden_type
+    #     )
+    # )
 end
 
 function unset_owns_req(label::Label, attribute_type::Proto.AttributeType)
@@ -415,6 +423,44 @@ function unset_relates_req(label::Label, role_label::Optional{String})
         relation_type_unset_relates_req = Proto.RelationType_UnsetRelates_Req(;
             label = role_label
         )
+    )
+end
+
+end
+
+# ---------------------------------------------------------------------------------
+module AttributeTypeRequestBuilder
+
+using ..TypeDBClient: Proto, Label
+using ..TypeRequestBuilder: _treq
+
+function get_owners_req(label::Label, only_key::Bool)
+    return _treq(label.name, label.scope;
+        attribute_type_get_owners_req = Proto.AttributeType_GetOwners_Req(; only_key)
+    )
+end
+
+function put_req(label::Label, value::Proto.Attribute_Value)
+    return _treq(label.name, label.scope;
+        attribute_type_put_req = Proto.AttributeType_Put_Req(; value)
+    )
+end
+
+function get_req(label::Label, value::Proto.Attribute_Value)
+    return _treq(label.name, label.scope;
+        attribute_type_get_req = Proto.AttributeType_Get_Req(; value)
+    )
+end
+
+function get_regex_req(label::Label)
+    return _treq(label.name, label.scope;
+        attribute_type_get_regex_req = Proto.AttributeType_GetRegex_Req()
+    )
+end
+
+function set_regex_req(label::Label, regex::AbstractString)
+    return _treq(label.name, label.scope;
+        attribute_type_set_regex_req = Proto.AttributeType_SetRegex_Req(; regex)
     )
 end
 

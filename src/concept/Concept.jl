@@ -6,12 +6,12 @@
 #   |__ Thing
 #   |     |__ Relation
 #   |     |__ Entity
-#   |     |__ Attribute{VALUE}
+#   |     |__ Attribute
 #   |__ Type
 #         |__ ThingType
 #         |     |__ RelationType
 #         |     |__ EntityType
-#         |     |__ AttributeType
+#         |     |__ AttributeType{V}
 #         |__ RoleType
 
 abstract type AbstractConcept end
@@ -48,7 +48,7 @@ end
 
 Wrapper type that encapsulates a concept and transaction.
 """
-struct Remote{D <: AbstractConcept, T <: AbstractCoreTransaction}
+struct RemoteConcept{D <: AbstractConcept, T <: AbstractCoreTransaction}
     concept::D
     transaction::T
 end
@@ -62,5 +62,5 @@ transaction `t`.
 function as_remote(x::D, t::T) where {
     D<: AbstractConcept, T <: AbstractCoreTransaction
 }
-    return Remote{D, T}(x, t)
+    return RemoteConcept{D, T}(x, t)
 end

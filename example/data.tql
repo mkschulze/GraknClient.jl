@@ -1,0 +1,1250 @@
+
+insert
+
+###########################
+## LOCATIONS | HIERARCHY ##
+###########################
+
+$loc-cou-1 isa location, has name "United States";
+$loc-cou-2 isa location, has name "United Kingdome";
+$loc-cou-3 isa location, has name "Australia";
+$loc-cou-4 isa location, has name "Canada";
+
+$loc-cit-1 isa location, has name "Renmark";
+$loc-hir-1-3 (subordinate: $loc-cit-1, superior: $loc-cou-3) isa location-hierarchy;
+$loc-cit-2 isa location, has name "Mansfield";
+$loc-hir-2-2 (subordinate: $loc-cit-2, superior: $loc-cou-2) isa location-hierarchy;
+$loc-cit-3 isa location, has name "Johnstown";
+$loc-hir-3-1 (subordinate: $loc-cit-3, superior: $loc-cou-1) isa location-hierarchy;
+$loc-cit-4 isa location, has name "West Nipissing";
+$loc-hir-4-2 (subordinate: $loc-cit-4, superior: $loc-cou-2) isa location-hierarchy;
+$loc-cit-5 isa location, has name "Fairmont";
+$loc-hir-5-1 (subordinate: $loc-cit-5, superior: $loc-cou-1) isa location-hierarchy;
+$loc-cit-6 isa location, has name "Holsworthy";
+$loc-hir-6-4 (subordinate: $loc-cit-6, superior: $loc-cou-4) isa location-hierarchy;
+$loc-cit-7 isa location, has name "Bourke";
+$loc-hir-7-3 (subordinate: $loc-cit-7, superior: $loc-cou-3) isa location-hierarchy;
+$loc-cit-8 isa location, has name "French Lick";
+$loc-hir-8-1 (subordinate: $loc-cit-8, superior: $loc-cou-1) isa location-hierarchy;
+
+###################################
+## SCHOOLS | COURSES | OFFERINGS ##
+###################################
+
+## SCHOOLS + LOCATIONS
+$sch-1 isa school, has name "WNC", has ranking 36;
+$los-1 (located: $sch-1, location: $loc-cit-2) isa localisation;
+$sch-2 isa school, has name "UPJ", has ranking 53;
+$los-2 (located: $sch-2, location: $loc-cit-3) isa localisation;
+$sch-3 isa school, has name "UPN", has ranking 136;
+$los-3 (located: $sch-3, location: $loc-cit-3) isa localisation;
+$sch-4 isa school, has name "UPK", has ranking 86;
+$los-4 (located: $sch-4, location: $loc-cit-3) isa localisation;
+$sch-5 isa school, has name "HCC", has ranking 24;
+$los-5 (located: $sch-5, location: $loc-cit-4) isa localisation;
+$sch-6 isa school, has name "UPT", has ranking 6;
+$los-6 (located: $sch-6, location: $loc-cit-3) isa localisation;
+$sch-7 isa school, has name "UPL", has ranking 192;
+$los-7 (located: $sch-7, location: $loc-cit-3) isa localisation;
+$sch-8 isa school, has name "UPA", has ranking 213;
+$los-8 (located: $sch-8, location: $loc-cit-3) isa localisation;
+
+## COURSES
+$cou-1 isa school-course, has title "Biomedical Engineering";
+$cou-2 isa school-course, has title "Management Information Systems";
+$cou-3 isa school-course, has title "Materials Science";
+$cou-4 isa school-course, has title "Software Engineering";
+$cou-5 isa school-course, has title "Biochemistry";
+$cou-6 isa school-course, has title "Microbiology";
+$cou-7 isa school-course, has title "International Law";
+$cou-8 isa school-course, has title "Accounting";
+
+# ## OFFERINGS
+# $sco-1 (school: $sch-1, course: $cou-1) isa school-course-offering;
+# $sco-2 (school: $sch-1, course: $cou-2) isa school-course-offering;
+# $sco-3 (school: $sch-2, course: $cou-2) isa school-course-offering;
+# $sco-4 (school: $sch-2, course: $cou-3) isa school-course-offering;
+# $sco-5 (school: $sch-2, course: $cou-4) isa school-course-offering;
+# $sco-6 (school: $sch-3, course: $cou-4) isa school-course-offering;
+# $sco-7 (school: $sch-4, course: $cou-3) isa school-course-offering;
+# $sco-8 (school: $sch-5, course: $cou-5) isa school-course-offering;
+# $sco-9 (school: $sch-5, course: $cou-7) isa school-course-offering;
+# $sco-10 (school: $sch-6, course: $cou-6) isa school-course-offering;
+# $sco-11 (school: $sch-7, course: $cou-8) isa school-course-offering;
+# $sco-12 (school: $sch-8, course: $cou-8) isa school-course-offering;
+
+###############################################
+## ORGANISATIONS | OFFICES || WORK POSITIONS ##
+###############################################
+
+## ORGANISATIONS
+$org-1 isa organisation, has name "Medicely", has registration-number "$org-1";
+$org-2 isa organisation, has name "Pharos", has registration-number "$org-2";
+$org-3 isa organisation, has name "Facelook", has registration-number "$org-3";
+$org-4 isa organisation, has name "Finworld", has registration-number "$org-4";
+$org-5 isa organisation, has name "Cybersafe", has registration-number "$org-5";
+
+## OFFICE | OWNERSHIP | LOCATION
+$off-1 isa office, has registration-number "$off-1";
+$ofo-1 (owner: $org-1, office: $off-1) isa office-ownership;
+$loo-1 (located: $off-1, location: $loc-cit-2) isa localisation;
+$off-2 isa office, has registration-number "$off-2";
+$ofo-2 (owner: $org-2, office: $off-2) isa office-ownership;
+$loo-2 (located: $off-2, location: $loc-cit-4) isa localisation;
+$off-3 isa office, has registration-number "$off-3";
+$ofo-3 (owner: $org-3, office: $off-3) isa office-ownership;
+$loo-3 (located: $off-3, location: $loc-cit-3) isa localisation;
+$off-4 isa office, has registration-number "$off-4";
+$ofo-4 (owner: $org-4, office: $off-4) isa office-ownership;
+$loo-4 (located: $off-4, location: $loc-cit-3) isa localisation;
+$off-5 isa office, has registration-number "$off-5";
+$ofo-5 (owner: $org-5, office: $off-5) isa office-ownership;
+$loo-5 (located: $off-5, location: $loc-cit-3) isa localisation;
+
+## WORK POSITIONS
+$job-1 isa profession, has title "Bioengineer";
+$job-2 isa profession, has title "Software Engineer";
+$job-3 isa profession, has title "Systems Analyst";
+$job-4 isa profession, has title "Materials Engineer";
+$job-5 isa profession, has title "Biologist";
+$job-6 isa profession, has title "Lawyer";
+$job-7 isa profession, has title "HR Manager";
+$job-8 isa profession, has title "Accountant";
+
+###############
+## LANGUAGES ##
+###############
+$lan-1 isa language; $lan-1 "English";
+$lan-2 isa language; $lan-2 "French";
+
+
+#################################################################################
+## PERSON | BIRTH | EDUCATION | EMPLOYMENT | RESIDENCY | TRAVEL | RELATIONSHIP ##
+#################################################################################
+
+## PERSON
+$per-1 isa person, has full-name "Miriam Morton", has nickname "Mitzi", has gender "female", has email "miriam.morton@gmail.com", has phone-number "+61-491-570-156", has phone-number "+44-1632-960007";
+$per-2 isa person, has full-name "Solomon Tran", has gender "male", has email "solomon.tran@gmail.com", has phone-number "+44-1632-12938", has phone-number "+61-491-570-158";
+$per-3 isa person, has full-name "Julie Hutchinson", has gender "female", has email "julie.hutchinson@gmail.com", has phone-number "+44-1632-960166", has phone-number "+61-491-570-110";
+$per-4 isa person, has full-name "Leona Rice", has nickname "Loni", has gender "female", has email "leona.rice@gmail.com", has phone-number "+1-613-555-0143", has phone-number "+1-202-555-0199";
+$per-5 isa person, has full-name "Jeremy Kelley", has nickname "Jere", has gender "male", has email "jeremy.kelley@gmail.com", has phone-number "202-555-0144";
+$per-6 isa person, has full-name "Fabian Clarke", has gender "male", has email "fabian.clarke@gmail.com", has phone-number "+44-1632-960123";
+$per-7 isa person, has full-name "Sofia Baker", has nickname "Saffi", has gender "female", has email "sofia.baker@gmail.com", has phone-number "+1-202-555-0106";
+$per-8 isa person, has full-name "Mabel Solis", has gender "female", has email "mabel.solis@gmail.com", has phone-number "+44-2819-12938";
+$per-9 isa person, has full-name "Haleema Garza", has gender "female", has email "haleema.garza@gmail.com", has phone-number "+1-202-555-0155";
+$per-10 isa person, has full-name "Haider Johnson", has gender "male", has email "haider.johnson@gmail.com", has phone-number "+1-613-532-0171", has phone-number "+44-1632-920266";
+$per-11 isa person, has full-name "Fraser Saunders", has gender "male", has email "fraser.saunders@gmail.com", has phone-number "+1-613-555-0192", has phone-number "+44-2819-12929";
+$per-12 isa person, has full-name "Dominic Lyons", has gender "male", has email "dominic.lyons@gmail.com", has phone-number "+1-613-555-0198", has phone-number "+44-1632-966371";
+$per-13 isa person, has full-name "Emelia Cummings", has gender "female", has email "emelia.cummings@gmail.com", has phone-number "+1-613-555-0171", has phone-number "+44-1632-960411";
+$per-14 isa person, has full-name "Ahmed Frazier", has gender "male", has email "ahmed.frazier@gmail.com", has phone-number "+1-202-555-2155";
+$per-15 isa person, has full-name "Tanya Arnold", has gender "female", has email "tanya.arnold@gmail.com", has phone-number "+44-1632-960962";
+$per-16 isa person, has full-name "Raphael Santos", has gender "male", has email "raphael.santos@gmail.com", has phone-number "+1-202-555-0107";
+
+## BIRTHS
+$bir-1 (child: $per-1) isa birth, has birth-date 1990-06-01;
+$lob-1 (located: $bir-1, location: $loc-cit-1) isa localisation;
+$bir-2 (child: $per-2) isa birth, has birth-date 1991-03-21;
+$lob-2 (located: $bir-2, location: $loc-cit-1) isa localisation;
+$bir-3 (child: $per-3) isa birth, has birth-date 1989-09-09;
+$lob-3 (located: $bir-3, location: $loc-cit-1) isa localisation;
+$bir-4 (child: $per-4) isa birth, has birth-date 1992-12-03;
+$lob-4 (located: $bir-4, location: $loc-cit-3) isa localisation;
+$bir-5 (child: $per-5) isa birth, has birth-date 1988-04-11;
+$lob-5 (located: $bir-5, location: $loc-cit-2) isa localisation;
+$bir-6 (child: $per-6) isa birth, has birth-date 1989-07-19;
+$lob-6 (located: $bir-6, location: $loc-cit-3) isa localisation;
+$bir-7 (child: $per-7) isa birth, has birth-date 1994-01-28;
+$lob-7 (located: $bir-7, location: $loc-cit-3) isa localisation;
+$bir-8 (child: $per-8) isa birth, has birth-date 1993-11-14;
+$lob-8 (located: $bir-8, location: $loc-cit-3) isa localisation;
+$bir-9 (child: $per-9) isa birth, has birth-date 1983-02-02;
+$lob-9 (located: $bir-9, location: $loc-cit-3) isa localisation;
+$bir-10 (child: $per-10) isa birth, has birth-date 1990-02-02;
+$lob-10 (located: $bir-10, location: $loc-cit-4) isa localisation;
+$bir-11 (child: $per-11) isa birth, has birth-date 1989-07-12;
+$lob-11 (located: $bir-11, location: $loc-cit-3) isa localisation;
+$bir-12 (child: $per-12) isa birth, has birth-date 1992-12-06;
+$lob-12 (located: $bir-12, location: $loc-cit-4) isa localisation;
+$bir-13 (child: $per-13) isa birth, has birth-date 1995-11-21;
+$lob-13 (located: $bir-13, location: $loc-cit-4) isa localisation;
+$bir-14 (child: $per-14) isa birth, has birth-date 1991-12-12;
+$lob-14 (located: $bir-14, location: $loc-cit-3) isa localisation;
+$bir-15 (child: $per-15) isa birth, has birth-date 1982-09-01;
+$lob-15 (located: $bir-15, location: $loc-cit-3) isa localisation;
+$bir-16 (child: $per-16) isa birth, has birth-date 1989-10-20;
+$lob-16 (located: $bir-16, location: $loc-cit-3) isa localisation;
+
+## RESIDENCIES
+$res-1 (resident: $per-1) isa residency, has start-date 1990-06-01, has end-date 2007-02-28;
+$lor-1 (located: $res-1, location: $loc-cit-1) isa localisation;
+$res-2 (resident: $per-1) isa residency, has start-date 2007-02-28;
+$lor-2 (located: $res-2, location: $loc-cit-2) isa localisation;
+$res-3 (resident: $per-2) isa residency, has start-date 1991-03-21, has end-date 2007-03-05;
+$lor-3 (located: $res-3, location: $loc-cit-1) isa localisation;
+$res-4 (resident: $per-2) isa residency, has start-date 2007-03-05;
+$lor-4 (located: $res-4, location: $loc-cit-2) isa localisation;
+$res-5 (resident: $per-3) isa residency, has start-date 1989-09-09, has end-date 2009-01-09;
+$lor-5 (located: $res-5, location: $loc-cit-1) isa localisation;
+$res-6 (resident: $per-3) isa residency, has start-date 2009-01-09;
+$lor-6 (located: $res-6, location: $loc-cit-2) isa localisation;
+$res-7 (resident: $per-4) isa residency, has start-date 1992-12-03, has end-date 2011-10-19;
+$lor-7 (located: $res-7, location: $loc-cit-3) isa localisation;
+$res-8 (resident: $per-4) isa residency, has start-date 2011-10-19;
+$lor-8 (located: $res-8, location: $loc-cit-4) isa localisation;
+$res-9 (resident: $per-5) isa residency, has start-date 1988-04-11;
+$lor-9 (located: $res-9, location: $loc-cit-3) isa localisation;
+$res-10 (resident: $per-6) isa residency, has start-date 1989-07-19;
+$lor-10 (located: $res-10, location: $loc-cit-3) isa localisation;
+$res-11 (resident: $per-7) isa residency, has start-date 1994-01-28;
+$lor-11 (located: $res-11, location: $loc-cit-3) isa localisation;
+$res-12 (resident: $per-8) isa residency, has start-date 1993-11-14;
+$lor-12 (located: $res-12, location: $loc-cit-3) isa localisation;
+$res-13 (resident: $per-9) isa residency, has start-date 1983-02-02;
+$lor-13 (located: $res-13, location: $loc-cit-3) isa localisation;
+$res-14 (resident: $per-10) isa residency, has start-date 1990-02-02, has end-date 2002-11-05;
+$lor-14 (located: $res-14, location: $loc-cit-3) isa localisation;
+$res-15 (resident: $per-10) isa residency, has start-date 2002-11-05;
+$lor-15 (located: $res-15, location: $loc-cit-4) isa localisation;
+$res-16 (resident: $per-11) isa residency, has start-date 1989-07-12, has end-date 2015-10-01;
+$lor-16 (located: $res-16, location: $loc-cit-3) isa localisation;
+$res-17 (resident: $per-11) isa residency, has start-date 2015-10-01;
+$lor-17 (located: $res-17, location: $loc-cit-4) isa localisation;
+$res-18 (resident: $per-12) isa residency, has start-date 1992-12-06, has end-date 2016-10-12;
+$lor-18 (located: $res-18, location: $loc-cit-4) isa localisation;
+$res-19 (resident: $per-12) isa residency, has start-date 2016-10-12;
+$lor-19 (located: $res-19, location: $loc-cit-3) isa localisation;
+$res-20 (resident: $per-13) isa residency, has start-date 1995-11-21, has end-date 2009-04-28;
+$lor-20 (located: $res-20, location: $loc-cit-4) isa localisation;
+$res-21 (resident: $per-13) isa residency, has start-date 2009-04-28;
+$lor-21 (located: $res-21, location: $loc-cit-3) isa localisation;
+$res-22 (resident: $per-14) isa residency, has start-date 1991-12-12;
+$lor-22 (located: $res-22, location: $loc-cit-3) isa localisation;
+$res-23 (resident: $per-15) isa residency, has start-date 1982-09-01;
+$lor-23 (located: $res-23, location: $loc-cit-3) isa localisation;
+$res-24 (resident: $per-16) isa residency, has start-date 1989-10-20;
+$lor-24 (located: $res-24, location: $loc-cit-3) isa localisation;
+
+## ENROLLMENTS
+$sce-1 (student: $per-1, course: $cou-1, school: $sch-1) isa studentship, has start-date 2008-03-10, has end-date 2011-11-03, has graduated true, has score 8.3;
+$sce-2 (student: $per-2, course: $cou-2, school: $sch-1) isa studentship, has start-date 2008-03-10, has end-date 2011-11-03, has graduated true, has score 8.1;
+$sce-3 (student: $per-3, course: $cou-1, school: $sch-1) isa studentship, has start-date 2009-03-10, has end-date 2012-11-03, has graduated true, has score 7.3;
+$sce-4 (student: $per-4, course: $cou-2, school: $sch-2) isa studentship, has start-date 2009-07-03, has end-date 2011-09-01, has graduated true, has score 8.0;
+$sce-6 (student: $per-6, course: $cou-3, school: $sch-2) isa studentship, has start-date 2008-01-01, has end-date 2010-01-01, has graduated true, has score 9.1;
+$sce-7 (student: $per-7, course: $cou-4, school: $sch-2) isa studentship, has start-date 2012-01-01, has end-date 2015-01-01, has graduated true, has score 6.5;
+$sce-8 (student: $per-8, course: $cou-4, school: $sch-3) isa studentship, has start-date 2011-07-01, has end-date 2014-07-01, has graduated true, has score 9.2;
+$sce-9 (student: $per-9, course: $cou-3, school: $sch-4) isa studentship, has start-date 2005-01-01, has end-date 2008-01-01, has graduated true, has score 5.3;
+$sce-10 (student: $per-10, course: $cou-5, school: $sch-5) isa studentship, has start-date 2009-01-01, has end-date 2013-01-01, has graduated true, has score 7.6;
+$sce-11 (student: $per-11, course: $cou-6, school: $sch-6) isa studentship, has start-date 2009-01-01, has end-date 2013-01-01, has graduated true, has score 6.4;
+$sce-12 (student: $per-12, course: $cou-7, school: $sch-5) isa studentship, has start-date 2011-01-01, has end-date 2014-07-01, has graduated true, has score 9.5;
+$sce-13 (student: $per-13, course: $cou-7, school: $sch-5) isa studentship, has start-date 2014-01-01, has end-date 2017-07-01, has graduated true, has score 7.1;
+$sce-15 (student: $per-15, course: $cou-8, school: $sch-7) isa studentship, has start-date 2010-01-01, has end-date 2014-07-01, has graduated true, has score 8.7;
+$sce-16 (student: $per-16, course: $cou-8, school: $sch-8) isa studentship, has start-date 2009-01-01, has end-date 2013-07-01, has graduated true, has score 8.7;
+
+## TRAVELS
+$tra-1 (traveler: $per-3) isa travel, has start-date 2013-12-22, has end-date 2014-01-02;
+$lot-1 (located: $tra-1, location: $loc-cit-5) isa localisation;
+$tra-2 (traveler: $per-5) isa travel, has start-date 2013-12-22, has end-date 2014-01-02;
+$lot-2 (located: $tra-2, location: $loc-cit-5) isa localisation;
+
+$tra-3 (traveler: $per-6) isa travel, has start-date 2012-10-10, has end-date 2012-10-14;
+$lot-3 (located: $tra-3, location: $loc-cit-6) isa localisation;
+$tra-4 (traveler: $per-8) isa travel, has start-date 2012-10-10, has end-date 2012-10-14;
+$lot-4 (located: $tra-5, location: $loc-cit-6) isa localisation;
+
+$tra-5 (traveler: $per-7) isa travel, has start-date 2018-05-10, has end-date 2018-06-11;
+$lot-5 (located: $tra-5, location: $loc-cit-7) isa localisation;
+$tra-6 (traveler: $per-9) isa travel, has start-date 2018-05-10, has end-date 2018-06-11;
+$lot-6 (located: $tra-6, location: $loc-cit-7) isa localisation;
+
+$tra-7 (traveler: $per-1) isa travel;
+$lot-7 (located: $tra-7, location: $loc-cit-8) isa localisation;
+$tra-8 (traveler: $per-2) isa travel;
+$lot-8 (located: $tra-8, location: $loc-cit-8) isa localisation;
+$tra-9 (traveler: $per-3) isa travel;
+$lot-9 (located: $tra-9, location: $loc-cit-8) isa localisation;
+
+## EMPLOYMENTS
+$emp-1 (employee: $per-1, employer: $org-1, job: $job-1) isa employment, has reference-id "r-1", has start-date 2012-01-03, has salary 3200;
+$emp-2 (employee: $per-2, employer: $org-1, job: $job-2) isa employment, has reference-id "r-2", has start-date 2012-01-08, has salary 2900;
+$emp-3 (employee: $per-3, employer: $org-1, job: $job-1) isa employment, has reference-id "r-3", has start-date 2013-02-05, has salary 4000;
+$emp-4 (employee: $per-4, employer: $org-1, job: $job-2) isa employment, has reference-id "r-4", has start-date 2011-12-01, has salary 2500;
+$emp-6 (employee: $per-6, employer: $org-1, job: $job-1) isa employment, has reference-id "r-5", has start-date 2010-02-01, has salary 9800;
+$emp-7 (employee: $per-7, employer: $org-3, job: $job-1) isa employment, has reference-id "r-6", has start-date 2015-04-01, has salary 2200;
+$emp-8 (employee: $per-8, employer: $org-4, job: $job-3) isa employment, has reference-id "r-7", has start-date 2014-09-01, has salary 5600;
+$emp-11 (employee: $per-11, employer: $org-2, job: $job-5) isa employment, has reference-id "r-9", has start-date 2013-06-01, has salary 3400;
+$emp-10 (employee: $per-10, employer: $org-2, job: $job-5) isa employment, has reference-id "r-8", has start-date 2011-06-04, has salary 6500;
+$emp-12 (employee: $per-12, employer: $org-3, job: $job-6) isa employment, has reference-id "r-10", has start-date 2014-07-15, has salary 3900;
+$emp-13 (employee: $per-13, employer: $org-4, job: $job-6) isa employment, has reference-id "r-11", has start-date 2017-07-28, has salary 3500;
+$emp-14 (employee: $per-14, employer: $org-4, job: $job-7) isa employment, has reference-id "r-12", has start-date 2010-01-01, has salary 4100;
+$emp-15 (employee: $per-15, employer: $org-5, job: $job-8) isa employment, has reference-id "r-13", has start-date 2014-05-01, has salary 3750;
+$emp-16 (employee: $per-16, employer: $org-5, job: $job-8) isa employment, has reference-id "r-14", has start-date 2015-01-01, has salary 7100;
+
+## SPEAKING OF LANGUAGES
+$sol-1 (speaker: $per-1, language: $lan-1) isa fluency;
+$sol-2 (speaker: $per-2, language: $lan-1) isa fluency;
+$sol-3 (speaker: $per-3, language: $lan-1) isa fluency;
+$sol-4 (speaker: $per-4, language: $lan-1) isa fluency;
+$sol-5 (speaker: $per-4, language: $lan-2) isa fluency;
+$sol-6 (speaker: $per-5, language: $lan-1) isa fluency;
+$sol-7 (speaker: $per-6, language: $lan-1) isa fluency;
+$sol-8 (speaker: $per-7, language: $lan-1) isa fluency;
+$sol-9 (speaker: $per-8, language: $lan-1) isa fluency;
+$sol-10 (speaker: $per-9, language: $lan-1) isa fluency;
+$sol-11 (speaker: $per-10, language: $lan-1) isa fluency;
+$sol-12 (speaker: $per-10, language: $lan-2) isa fluency;
+$sol-13 (speaker: $per-11, language: $lan-1) isa fluency;
+$sol-14 (speaker: $per-11, language: $lan-2) isa fluency;
+$sol-15 (speaker: $per-12, language: $lan-1) isa fluency;
+$sol-16 (speaker: $per-12, language: $lan-2) isa fluency;
+$sol-17 (speaker: $per-13, language: $lan-1) isa fluency;
+$sol-18 (speaker: $per-13, language: $lan-2) isa fluency;
+$sol-19 (speaker: $per-14, language: $lan-1) isa fluency;
+$sol-20 (speaker: $per-15, language: $lan-1) isa fluency;
+$sol-21 (speaker: $per-16, language: $lan-1) isa fluency;
+
+## RELATIONSHIPS
+$mar-1 (wife: $per-3, husband: $per-5) isa marriage, has start-date 2010-06-01;
+$dre-1 (partner: $per-6, partner: $per-8) isa domestic-relationship, has start-date 2012-10-12;
+$rre-1 (partner: $per-7, partner: $per-9) isa romantic-relationship, has start-date 2017-07-03;
+
+## FRIENDSHIPS
+$fri-req-1 (friend-requester: $per-1, friend-respondent: $per-2, friendship: $fri-1) isa friend-request, has approved-date 2008-03-12;
+$fri-1 (friend: $per-1, friend: $per-2) isa friendship;
+$fri-req-2 (friend-requester: $per-1, friend-respondent: $per-3, friendship: $fri-2) isa friend-request, has approved-date 2008-03-01;
+$fri-2 (friend: $per-1, friend: $per-3) isa friendship;
+$fri-req-3 (friend-requester: $per-2, friend-respondent: $per-3, friendship: $fri-3) isa friend-request, has approved-date 2008-04-14;
+$fri-3 (friend: $per-2, friend: $per-3) isa friendship;
+$fri-req-4 (friend-requester: $per-3, friend-respondent: $per-5, friendship: $fri-4) isa friend-request, has approved-date 2008-03-19;
+$fri-4 (friend: $per-3, friend: $per-5) isa friendship;
+$fri-req-5 (friend-requester: $per-2, friend-respondent: $per-4, friendship: $fri-5) isa friend-request, has approved-date 2008-03-21;
+$fri-5 (friend: $per-2, friend: $per-4) isa friendship;
+$fri-req-6 (friend-requester: $per-6, friend-respondent: $per-8, friendship: $fri-6) isa friend-request, has approved-date 2008-04-25;
+$fri-6 (friend: $per-6, friend: $per-8) isa friendship;
+$fri-req-7 (friend-requester: $per-6, friend-respondent: $per-7, friendship: $fri-7) isa friend-request, has approved-date 2008-03-02;
+$fri-7 (friend: $per-6, friend: $per-7) isa friendship;
+$fri-req-8 (friend-requester: $per-7, friend-respondent: $per-9, friendship: $fri-8) isa friend-request, has approved-date 2008-03-22;
+$fri-8 (friend: $per-7, friend: $per-9) isa friendship;
+$fri-req-9 (friend-requester: $per-10, friend-respondent: $per-11, friendship: $fri-9) isa friend-request, has approved-date 2008-04-12;
+$fri-9 (friend: $per-10, friend: $per-11) isa friendship;
+$fri-req-10 (friend-requester: $per-11, friend-respondent: $per-13, friendship: $fri-10) isa friend-request, has approved-date 2008-03-24;
+$fri-10 (friend: $per-11, friend: $per-13) isa friendship;
+$fri-req-11 (friend-requester: $per-13, friend-respondent: $per-12, friendship: $fri-11) isa friend-request, has approved-date 2008-03-04;
+$fri-11 (friend: $per-13, friend: $per-12) isa friendship;
+$fri-req-12 (friend-requester: $per-14, friend-respondent: $per-15, friendship: $fri-12) isa friend-request, has approved-date 2008-03-15;
+$fri-12 (friend: $per-14, friend: $per-15) isa friendship;
+$fri-req-13 (friend-requester: $per-15, friend-respondent: $per-16, friendship: $fri-13) isa friend-request, has approved-date 2008-04-14;
+$fri-13 (friend: $per-15, friend: $per-16) isa friendship;
+$fri-req-14 (friend-requester: $per-14, friend-respondent: $per-16, friendship: $fri-14) isa friend-request, has approved-date 2008-03-12;
+$fri-14 (friend: $per-14, friend: $per-16) isa friendship;
+
+## TIMELINES
+
+$tim-1 isa timeline, has identifier "$tim-1";
+$tow-1 (owner: $per-1, timeline: $tim-1) isa timeline-ownership;
+$tim-2 isa timeline, has identifier "$tim-2";
+$tow-2 (owner: $per-2, timeline: $tim-2) isa timeline-ownership;
+$tim-3 isa timeline, has identifier "$tim-3";
+$tow-3 (owner: $per-3, timeline: $tim-3) isa timeline-ownership;
+$tim-4 isa timeline, has identifier "$tim-4";
+$tow-4 (owner: $per-4, timeline: $tim-4) isa timeline-ownership;
+$tim-5 isa timeline, has identifier "$tim-5";
+$tow-5 (owner: $per-5, timeline: $tim-5) isa timeline-ownership;
+$tim-6 isa timeline, has identifier "$tim-6";
+$tow-6 (owner: $per-6, timeline: $tim-6) isa timeline-ownership;
+$tim-7 isa timeline, has identifier "$tim-7";
+$tow-7 (owner: $per-7, timeline: $tim-7) isa timeline-ownership;
+$tim-8 isa timeline, has identifier "$tim-8";
+$tow-8 (owner: $per-8, timeline: $tim-8) isa timeline-ownership;
+$tim-9 isa timeline, has identifier "$tim-9";
+$tow-9 (owner: $per-9, timeline: $tim-9) isa timeline-ownership;
+$tim-10 isa timeline, has identifier "$tim-10";
+$tow-10 (owner: $per-10, timeline: $tim-10) isa timeline-ownership;
+$tim-11 isa timeline, has identifier "$tim-11";
+$tow-11 (owner: $per-11, timeline: $tim-11) isa timeline-ownership;
+$tim-12 isa timeline, has identifier "$tim-12";
+$tow-12 (owner: $per-12, timeline: $tim-12) isa timeline-ownership;
+$tim-13 isa timeline, has identifier "$tim-13";
+$tow-13 (owner: $per-13, timeline: $tim-13) isa timeline-ownership;
+$tim-14 isa timeline, has identifier "$tim-14";
+$tow-14 (owner: $per-14, timeline: $tim-14) isa timeline-ownership;
+$tim-15 isa timeline, has identifier "$tim-15";
+$tow-15 (owner: $per-15, timeline: $tim-15) isa timeline-ownership;
+$tim-16 isa timeline, has identifier "$tim-16";
+$tow-16 (owner: $per-16, timeline: $tim-16) isa timeline-ownership;
+
+## GROUPS
+$gro-1 isa public-group, has name "Interdum mi pulvinar";
+$gow-1 (owner: $per-1, owned-group: $gro-1) isa group-ownership;
+$gro-1-mem-2 (member: $per-2, membership-group: $gro-1) isa membership;
+$gro-1-mem-3 (member: $per-3, membership-group: $gro-1) isa membership;
+$gro-1-mem-4 (member: $per-4, membership-group: $gro-1) isa membership;
+$gro-1-mem-5 (member: $per-5, membership-group: $gro-1) isa membership;
+
+$gro-2 isa secret-group, has name "Commodo";
+$gow-2 (owner: $per-10, owned-group: $gro-2) isa group-ownership;
+$gro-2-mem-2 (member: $per-11, membership-group: $gro-2) isa membership;
+$gro-2-mem-2-req (approved: $gro-2-mem-2, membership-requester: $per-11, membership-respondent: $per-10) isa membership-request;
+$gro-2-mem-3 (member: $per-13, membership-group: $gro-2) isa membership;
+$gro-2-mem-3-req (approved: $gro-2-mem-3, membership-requester: $per-13, membership-respondent: $per-10) isa membership-request;
+$gro-2-mem-4 (member: $per-6, membership-group: $gro-2) isa membership;
+$gro-2-mem-4-req (approved: $gro-2-mem-4, membership-requester: $per-6, membership-respondent: $per-10) isa membership-request;
+
+## EMOTIONS
+$emo-1 isa emotion; $emo-1 "like";
+$emo-2 isa emotion; $emo-2 "love";
+$emo-3 isa emotion; $emo-3 "funny";
+$emo-4 isa emotion; $emo-4 "shocking";
+$emo-5 isa emotion; $emo-5 "sad";
+$emo-6 isa emotion; $emo-6 "angry";
+
+## POST | COMMENT | SHARING | REPLY | REACTION | TAGGING
+$per-1-pos-1 isa status-update, has content "$per-1-pos-1-content", has identifier "$per-1-pos-1";
+$per-1-pos-1-sha (content: $per-1-pos-1, by: $per-1, in: $tim-1, with: $per-3) isa inclusive-sharing;
+$per-1-pos-1-com-1 isa comment, has content "$per-1-pos-1-com-1-content", has identifier "$per-1-pos-1-com-1";
+$per-1-pos-1-com-1-rep (to: $per-1-pos-1, content: $per-1-pos-1-com-1, by: $per-3) isa reply;
+$per-1-pos-1-com-1-com-1 isa comment, has content "$per-1-pos-1-com-1-com-1-content", has identifier "$per-1-pos-1-com-1-com-1";
+$per-1-pos-1-com-1-com-1-rep (to: $per-1-pos-1-com-1, content: $per-1-pos-1-com-1-com-1, by: $per-1) isa reply;
+$per-1-pos-1-rea-1 (emotion: $emo-5, to: $per-1-pos-1, by: $per-3) isa reaction;
+
+$per-1-pos-2 isa status-update, has content "$per-1-pos-2-content", has identifier "$per-1-pos-2";
+$per-1-pos-2-sha (content: $per-1-pos-2, by: $per-1, in: $tim-1) isa friends-sharing;
+$per-1-pos-2-com-1 isa comment, has content "$per-1-pos-2-com-1-content", has identifier "$per-1-pos-2-com-1";
+$per-1-pos-2-com-1-rep (to: $per-1-pos-2, content: $per-1-pos-2-com-1, by: $per-3) isa reply;
+$per-1-pos-2-com-1-com-1 isa comment, has content "$per-1-pos-2-com-1-com-1-content", has identifier "$per-1-pos-2-com-1-com-1";
+$per-1-pos-2-com-1-com-1-rep (to: $per-1-pos-2-com-1, content: $per-1-pos-2-com-1-com-1, by: $per-1) isa reply;
+$per-1-pos-2-com-2 isa comment, has content "$per-1-pos-2-com-2-content", has identifier "$per-1-pos-2-com-2";
+$per-1-pos-2-com-2-rep (to: $per-1-pos-2, content: $per-1-pos-2-com-2, by: $per-2) isa reply;
+$per-1-pos-2-rea-1 (emotion: $emo-3, to: $per-1-pos-2, by: $per-2) isa reaction;
+
+$per-1-pos-3 isa video, has file "$per-1-pos-3-file", has caption "$per-1-pos-3-caption", has identifier "$per-1-pos-3";
+$per-1-pos-3-sha (content: $per-1-pos-3, by: $per-1, in: $tim-1, hidden-from: $per-3) isa friends-with-exclusion-sharing;
+$per-1-pos-3-com-1 isa comment, has content "$per-1-pos-3-com-1-content", has identifier "$per-1-pos-3-com-1";
+$per-1-pos-3-com-1-rep (to: $per-1-pos-3, content: $per-1-pos-3-com-1, by: $per-2) isa reply;
+$per-1-pos-3-com-1-com-1 isa comment, has content "$per-1-pos-3-com-1-com-1-content", has identifier "$per-1-pos-3-com-1-com-1";
+$per-1-pos-3-com-1-com-1-rep (to: $per-1-pos-3-com-1, content: $per-1-pos-3-com-1-com-1, by: $per-1) isa reply;
+$per-1-pos-3-rea-1 (emotion: $emo-1, to: $per-1-pos-3, by: $per-2) isa reaction;
+
+$per-1-pos-4 isa video, has file "$per-1-pos-4-file", has caption "$per-1-pos-4-caption", has identifier "$per-1-pos-4";
+$per-1-pos-4-sha (content: $per-1-pos-4, by: $per-1, in: $tim-1) isa friends-sharing;
+$per-1-pos-4-com-1 isa comment, has content "$per-1-pos-4-com-1-content", has identifier "$per-1-pos-4-com-1";
+$per-1-pos-4-com-1-rep (to: $per-1-pos-4, content: $per-1-pos-4-com-1, by: $per-2) isa reply;
+$per-1-pos-4-com-1-com-1 isa comment, has content "$per-1-pos-4-com-1-com-1-content", has identifier "$per-1-pos-4-com-1-com-1";
+$per-1-pos-4-com-1-com-1-rep (to: $per-1-pos-4-com-1, content: $per-1-pos-4-com-1-com-1, by: $per-1) isa reply;
+$per-1-pos-4-com-2 isa comment, has content "$per-1-pos-4-com-2-content", has identifier "$per-1-pos-4-com-2";
+$per-1-pos-4-com-2-rep (to: $per-1-pos-4, content: $per-1-pos-4-com-2, by: $per-3) isa reply;
+$per-1-pos-4-rea-1 (emotion: $emo-6, to: $per-1-pos-4, by: $per-3) isa reaction;
+$per-1-pos-4-rea-2 (emotion: $emo-4, to: $per-1-pos-4, by: $per-2) isa reaction;
+$per-1-pos-4-tag-1 (tagged: $per-2, in: $per-1-pos-4) isa tagging;
+$per-1-pos-5 isa photo, has file "$per-1-pos-5-file", has caption "$per-1-pos-5-caption", has identifier "$per-1-pos-5";
+$per-1-pos-5-sha (content: $per-1-pos-5, by: $per-1, in: $tim-1) isa friends-sharing;
+$per-1-pos-5-com-1 isa comment, has content "$per-1-pos-5-com-1-content", has identifier "$per-1-pos-5-com-1";
+$per-1-pos-5-com-1-rep (to: $per-1-pos-5, content: $per-1-pos-5-com-1, by: $per-3) isa reply;
+$per-1-pos-5-com-1-com-1 isa comment, has content "$per-1-pos-5-com-1-com-1-content", has identifier "$per-1-pos-5-com-1-com-1";
+$per-1-pos-5-com-1-com-1-rep (to: $per-1-pos-5-com-1, content: $per-1-pos-5-com-1-com-1, by: $per-1) isa reply;
+$per-1-pos-5-rea-1 (emotion: $emo-6, to: $per-1-pos-5, by: $per-2) isa reaction;
+
+$per-1-pos-6 isa status-update, has content "$per-1-pos-6-content", has identifier "$per-1-pos-6";
+$per-1-pos-6-sha (content: $per-1-pos-6, by: $per-1, in: $tim-1) isa friends-sharing;
+$per-1-pos-6-com-1 isa comment, has content "$per-1-pos-6-com-1-content", has identifier "$per-1-pos-6-com-1";
+$per-1-pos-6-com-1-rep (to: $per-1-pos-6, content: $per-1-pos-6-com-1, by: $per-2) isa reply;
+$per-1-pos-6-com-1-com-1 isa comment, has content "$per-1-pos-6-com-1-com-1-content", has identifier "$per-1-pos-6-com-1-com-1";
+$per-1-pos-6-com-1-com-1-rep (to: $per-1-pos-6-com-1, content: $per-1-pos-6-com-1-com-1, by: $per-1) isa reply;
+$per-1-pos-6-rea-1 (emotion: $emo-5, to: $per-1-pos-6, by: $per-2) isa reaction;
+$per-1-pos-6-rea-2 (emotion: $emo-4, to: $per-1-pos-6, by: $per-3) isa reaction;
+
+$per-1-pos-7 isa status-update, has content "$per-1-pos-7-content", has identifier "$per-1-pos-7";
+$per-1-pos-7-sha (content: $per-1-pos-7, by: $per-1, in: $tim-1, hidden-from: $per-2) isa friends-with-exclusion-sharing;
+$per-1-pos-7-com-1 isa comment, has content "$per-1-pos-7-com-1-content", has identifier "$per-1-pos-7-com-1";
+$per-1-pos-7-com-1-rep (to: $per-1-pos-7, content: $per-1-pos-7-com-1, by: $per-3) isa reply;
+$per-1-pos-7-com-1-com-1 isa comment, has content "$per-1-pos-7-com-1-com-1-content", has identifier "$per-1-pos-7-com-1-com-1";
+$per-1-pos-7-com-1-com-1-rep (to: $per-1-pos-7-com-1, content: $per-1-pos-7-com-1-com-1, by: $per-1) isa reply;
+$per-1-pos-7-rea-1 (emotion: $emo-1, to: $per-1-pos-7, by: $per-3) isa reaction;
+$per-1-pos-7-tag-1 (tagged: $per-2, in: $per-1-pos-7) isa tagging;
+$per-1-pos-8 isa video, has file "$per-1-pos-8-file", has caption "$per-1-pos-8-caption", has identifier "$per-1-pos-8";
+$per-1-pos-8-sha (content: $per-1-pos-8, by: $per-1, in: $tim-1, with: $per-2) isa inclusive-sharing;
+$per-1-pos-8-com-1 isa comment, has content "$per-1-pos-8-com-1-content", has identifier "$per-1-pos-8-com-1";
+$per-1-pos-8-com-1-rep (to: $per-1-pos-8, content: $per-1-pos-8-com-1, by: $per-2) isa reply;
+$per-1-pos-8-com-1-com-1 isa comment, has content "$per-1-pos-8-com-1-com-1-content", has identifier "$per-1-pos-8-com-1-com-1";
+$per-1-pos-8-com-1-com-1-rep (to: $per-1-pos-8-com-1, content: $per-1-pos-8-com-1-com-1, by: $per-1) isa reply;
+$per-1-pos-8-rea-1 (emotion: $emo-5, to: $per-1-pos-8, by: $per-2) isa reaction;
+
+$per-2-pos-1 isa video, has file "$per-2-pos-1-file", has caption "$per-2-pos-1-caption", has identifier "$per-2-pos-1";
+$per-2-pos-1-sha (content: $per-2-pos-1, by: $per-2, in: $tim-2, with: $per-3, with: $per-4) isa inclusive-sharing;
+$per-2-pos-1-com-1 isa comment, has content "$per-2-pos-1-com-1-content", has identifier "$per-2-pos-1-com-1";
+$per-2-pos-1-com-1-rep (to: $per-2-pos-1, content: $per-2-pos-1-com-1, by: $per-3) isa reply;
+$per-2-pos-1-com-1-com-1 isa comment, has content "$per-2-pos-1-com-1-com-1-content", has identifier "$per-2-pos-1-com-1-com-1";
+$per-2-pos-1-com-1-com-1-rep (to: $per-2-pos-1-com-1, content: $per-2-pos-1-com-1-com-1, by: $per-2) isa reply;
+$per-2-pos-1-com-2 isa comment, has content "$per-2-pos-1-com-2-content", has identifier "$per-2-pos-1-com-2";
+$per-2-pos-1-com-2-rep (to: $per-2-pos-1, content: $per-2-pos-1-com-2, by: $per-4) isa reply;
+$per-2-pos-1-rea-1 (emotion: $emo-2, to: $per-2-pos-1, by: $per-4) isa reaction;
+$per-2-pos-1-rea-2 (emotion: $emo-1, to: $per-2-pos-1, by: $per-3) isa reaction;
+
+$per-2-pos-2 isa status-update, has content "$per-2-pos-2-content", has identifier "$per-2-pos-2";
+$per-2-pos-2-sha (content: $per-2-pos-2, by: $per-2, in: $tim-2, hidden-from: $per-4) isa friends-with-exclusion-sharing;
+$per-2-pos-2-com-1 isa comment, has content "$per-2-pos-2-com-1-content", has identifier "$per-2-pos-2-com-1";
+$per-2-pos-2-com-1-rep (to: $per-2-pos-2, content: $per-2-pos-2-com-1, by: $per-1) isa reply;
+$per-2-pos-2-com-1-com-1 isa comment, has content "$per-2-pos-2-com-1-com-1-content", has identifier "$per-2-pos-2-com-1-com-1";
+$per-2-pos-2-com-1-com-1-rep (to: $per-2-pos-2-com-1, content: $per-2-pos-2-com-1-com-1, by: $per-2) isa reply;
+$per-2-pos-2-com-2 isa comment, has content "$per-2-pos-2-com-2-content", has identifier "$per-2-pos-2-com-2";
+$per-2-pos-2-com-2-rep (to: $per-2-pos-2, content: $per-2-pos-2-com-2, by: $per-3) isa reply;
+$per-2-pos-2-rea-1 (emotion: $emo-2, to: $per-2-pos-2, by: $per-3) isa reaction;
+
+$per-2-pos-3 isa status-update, has content "$per-2-pos-3-content", has identifier "$per-2-pos-3";
+$per-2-pos-3-sha (content: $per-2-pos-3, by: $per-2, in: $tim-2, with: $per-3, with: $per-4) isa inclusive-sharing;
+$per-2-pos-3-com-1 isa comment, has content "$per-2-pos-3-com-1-content", has identifier "$per-2-pos-3-com-1";
+$per-2-pos-3-com-1-rep (to: $per-2-pos-3, content: $per-2-pos-3-com-1, by: $per-3) isa reply;
+$per-2-pos-3-com-1-com-1 isa comment, has content "$per-2-pos-3-com-1-com-1-content", has identifier "$per-2-pos-3-com-1-com-1";
+$per-2-pos-3-com-1-com-1-rep (to: $per-2-pos-3-com-1, content: $per-2-pos-3-com-1-com-1, by: $per-2) isa reply;
+$per-2-pos-3-rea-1 (emotion: $emo-3, to: $per-2-pos-3, by: $per-3) isa reaction;
+$per-2-pos-3-rea-2 (emotion: $emo-4, to: $per-2-pos-3, by: $per-4) isa reaction;
+
+$per-2-pos-4 isa video, has file "$per-2-pos-4-file", has caption "$per-2-pos-4-caption", has identifier "$per-2-pos-4";
+$per-2-pos-4-sha (content: $per-2-pos-4, by: $per-2, in: $tim-2) isa friends-sharing;
+$per-2-pos-4-com-1 isa comment, has content "$per-2-pos-4-com-1-content", has identifier "$per-2-pos-4-com-1";
+$per-2-pos-4-com-1-rep (to: $per-2-pos-4, content: $per-2-pos-4-com-1, by: $per-1) isa reply;
+$per-2-pos-4-com-1-com-1 isa comment, has content "$per-2-pos-4-com-1-com-1-content", has identifier "$per-2-pos-4-com-1-com-1";
+$per-2-pos-4-com-1-com-1-rep (to: $per-2-pos-4-com-1, content: $per-2-pos-4-com-1-com-1, by: $per-2) isa reply;
+$per-2-pos-4-com-2 isa comment, has content "$per-2-pos-4-com-2-content", has identifier "$per-2-pos-4-com-2";
+$per-2-pos-4-com-2-rep (to: $per-2-pos-4, content: $per-2-pos-4-com-2, by: $per-3) isa reply;
+$per-2-pos-4-rea-1 (emotion: $emo-5, to: $per-2-pos-4, by: $per-4) isa reaction;
+$per-2-pos-4-rea-2 (emotion: $emo-4, to: $per-2-pos-4, by: $per-1) isa reaction;
+$per-2-pos-4-rea-3 (emotion: $emo-5, to: $per-2-pos-4, by: $per-3) isa reaction;
+$per-2-pos-4-tag-1 (tagged: $per-4, in: $per-2-pos-4) isa tagging;
+$per-3-pos-1 isa status-update, has content "$per-3-pos-1-content", has identifier "$per-3-pos-1";
+$per-3-pos-1-sha (content: $per-3-pos-1, by: $per-3, in: $tim-3) isa friends-sharing;
+$per-3-pos-1-com-1 isa comment, has content "$per-3-pos-1-com-1-content", has identifier "$per-3-pos-1-com-1";
+$per-3-pos-1-com-1-rep (to: $per-3-pos-1, content: $per-3-pos-1-com-1, by: $per-1) isa reply;
+$per-3-pos-1-com-1-com-1 isa comment, has content "$per-3-pos-1-com-1-com-1-content", has identifier "$per-3-pos-1-com-1-com-1";
+$per-3-pos-1-com-1-com-1-rep (to: $per-3-pos-1-com-1, content: $per-3-pos-1-com-1-com-1, by: $per-3) isa reply;
+$per-3-pos-1-com-2 isa comment, has content "$per-3-pos-1-com-2-content", has identifier "$per-3-pos-1-com-2";
+$per-3-pos-1-com-2-rep (to: $per-3-pos-1, content: $per-3-pos-1-com-2, by: $per-5) isa reply;
+$per-3-pos-1-rea-1 (emotion: $emo-1, to: $per-3-pos-1, by: $per-1) isa reaction;
+
+$per-3-pos-2 isa status-update, has content "$per-3-pos-2-content", has identifier "$per-3-pos-2";
+$per-3-pos-2-sha (content: $per-3-pos-2, by: $per-3, in: $tim-3) isa public-sharing;
+$per-3-pos-2-com-1 isa comment, has content "$per-3-pos-2-com-1-content", has identifier "$per-3-pos-2-com-1";
+$per-3-pos-2-com-1-rep (to: $per-3-pos-2, content: $per-3-pos-2-com-1, by: $per-5) isa reply;
+$per-3-pos-2-com-1-com-1 isa comment, has content "$per-3-pos-2-com-1-com-1-content", has identifier "$per-3-pos-2-com-1-com-1";
+$per-3-pos-2-com-1-com-1-rep (to: $per-3-pos-2-com-1, content: $per-3-pos-2-com-1-com-1, by: $per-3) isa reply;
+$per-3-pos-2-com-2 isa comment, has content "$per-3-pos-2-com-2-content", has identifier "$per-3-pos-2-com-2";
+$per-3-pos-2-com-2-rep (to: $per-3-pos-2, content: $per-3-pos-2-com-2, by: $per-14) isa reply;
+$per-3-pos-2-com-2-com-1 isa comment, has content "$per-3-pos-2-com-2-com-1-content", has identifier "$per-3-pos-2-com-2-com-1";
+$per-3-pos-2-com-2-com-1-rep (to: $per-3-pos-2-com-2, content: $per-3-pos-2-com-2-com-1, by: $per-3) isa reply;
+$per-3-pos-2-rea-1 (emotion: $emo-1, to: $per-3-pos-2, by: $per-10) isa reaction;
+$per-3-pos-2-rea-2 (emotion: $emo-2, to: $per-3-pos-2, by: $per-4) isa reaction;
+$per-3-pos-2-rea-3 (emotion: $emo-2, to: $per-3-pos-2, by: $per-9) isa reaction;
+
+$per-3-pos-3 isa video, has file "$per-3-pos-3-file", has caption "$per-3-pos-3-caption", has identifier "$per-3-pos-3";
+$per-3-pos-3-sha (content: $per-3-pos-3, by: $per-3, in: $tim-3, hidden-from: $per-5) isa friends-with-exclusion-sharing;
+$per-3-pos-3-com-1 isa comment, has content "$per-3-pos-3-com-1-content", has identifier "$per-3-pos-3-com-1";
+$per-3-pos-3-com-1-rep (to: $per-3-pos-3, content: $per-3-pos-3-com-1, by: $per-1) isa reply;
+$per-3-pos-3-com-1-com-1 isa comment, has content "$per-3-pos-3-com-1-com-1-content", has identifier "$per-3-pos-3-com-1-com-1";
+$per-3-pos-3-com-1-com-1-rep (to: $per-3-pos-3-com-1, content: $per-3-pos-3-com-1-com-1, by: $per-3) isa reply;
+$per-3-pos-3-rea-1 (emotion: $emo-1, to: $per-3-pos-3, by: $per-1) isa reaction;
+
+$per-4-pos-1 isa video, has file "$per-4-pos-1-file", has caption "$per-4-pos-1-caption", has identifier "$per-4-pos-1";
+$per-4-pos-1-sha (content: $per-4-pos-1, by: $per-4, in: $tim-4) isa friends-sharing;
+$per-4-pos-1-com-1 isa comment, has content "$per-4-pos-1-com-1-content", has identifier "$per-4-pos-1-com-1";
+$per-4-pos-1-com-1-rep (to: $per-4-pos-1, content: $per-4-pos-1-com-1, by: $per-2) isa reply;
+$per-4-pos-1-com-1-com-1 isa comment, has content "$per-4-pos-1-com-1-com-1-content", has identifier "$per-4-pos-1-com-1-com-1";
+$per-4-pos-1-com-1-com-1-rep (to: $per-4-pos-1-com-1, content: $per-4-pos-1-com-1-com-1, by: $per-4) isa reply;
+$per-4-pos-1-rea-1 (emotion: $emo-6, to: $per-4-pos-1, by: $per-2) isa reaction;
+
+$per-4-pos-2 isa video, has file "$per-4-pos-2-file", has caption "$per-4-pos-2-caption", has identifier "$per-4-pos-2";
+$per-4-pos-2-sha (content: $per-4-pos-2, by: $per-4, in: $tim-4) isa friends-sharing;
+$per-4-pos-2-com-1 isa comment, has content "$per-4-pos-2-com-1-content", has identifier "$per-4-pos-2-com-1";
+$per-4-pos-2-com-1-rep (to: $per-4-pos-2, content: $per-4-pos-2-com-1, by: $per-2) isa reply;
+$per-4-pos-2-com-1-com-1 isa comment, has content "$per-4-pos-2-com-1-com-1-content", has identifier "$per-4-pos-2-com-1-com-1";
+$per-4-pos-2-com-1-com-1-rep (to: $per-4-pos-2-com-1, content: $per-4-pos-2-com-1-com-1, by: $per-4) isa reply;
+$per-4-pos-2-rea-1 (emotion: $emo-1, to: $per-4-pos-2, by: $per-2) isa reaction;
+
+$per-4-pos-3 isa photo, has file "$per-4-pos-3-file", has caption "$per-4-pos-3-caption", has identifier "$per-4-pos-3";
+$per-4-pos-3-sha (content: $per-4-pos-3, by: $per-4, in: $tim-4) isa friends-sharing;
+$per-4-pos-3-com-1 isa comment, has content "$per-4-pos-3-com-1-content", has identifier "$per-4-pos-3-com-1";
+$per-4-pos-3-com-1-rep (to: $per-4-pos-3, content: $per-4-pos-3-com-1, by: $per-2) isa reply;
+$per-4-pos-3-com-1-com-1 isa comment, has content "$per-4-pos-3-com-1-com-1-content", has identifier "$per-4-pos-3-com-1-com-1";
+$per-4-pos-3-com-1-com-1-rep (to: $per-4-pos-3-com-1, content: $per-4-pos-3-com-1-com-1, by: $per-4) isa reply;
+$per-4-pos-3-rea-1 (emotion: $emo-2, to: $per-4-pos-3, by: $per-2) isa reaction;
+
+$per-4-pos-4 isa status-update, has content "$per-4-pos-4-content", has identifier "$per-4-pos-4";
+$per-4-pos-4-sha (content: $per-4-pos-4, by: $per-4, in: $tim-4) isa friends-sharing;
+$per-4-pos-4-com-1 isa comment, has content "$per-4-pos-4-com-1-content", has identifier "$per-4-pos-4-com-1";
+$per-4-pos-4-com-1-rep (to: $per-4-pos-4, content: $per-4-pos-4-com-1, by: $per-2) isa reply;
+$per-4-pos-4-com-1-com-1 isa comment, has content "$per-4-pos-4-com-1-com-1-content", has identifier "$per-4-pos-4-com-1-com-1";
+$per-4-pos-4-com-1-com-1-rep (to: $per-4-pos-4-com-1, content: $per-4-pos-4-com-1-com-1, by: $per-4) isa reply;
+$per-4-pos-4-rea-1 (emotion: $emo-3, to: $per-4-pos-4, by: $per-2) isa reaction;
+$per-4-pos-4-tag-1 (tagged: $per-2, in: $per-4-pos-4) isa tagging;
+$per-4-pos-5 isa status-update, has content "$per-4-pos-5-content", has identifier "$per-4-pos-5";
+$per-4-pos-5-sha (content: $per-4-pos-5, by: $per-4, in: $tim-4) isa friends-sharing;
+$per-4-pos-5-com-1 isa comment, has content "$per-4-pos-5-com-1-content", has identifier "$per-4-pos-5-com-1";
+$per-4-pos-5-com-1-rep (to: $per-4-pos-5, content: $per-4-pos-5-com-1, by: $per-2) isa reply;
+$per-4-pos-5-com-1-com-1 isa comment, has content "$per-4-pos-5-com-1-com-1-content", has identifier "$per-4-pos-5-com-1-com-1";
+$per-4-pos-5-com-1-com-1-rep (to: $per-4-pos-5-com-1, content: $per-4-pos-5-com-1-com-1, by: $per-4) isa reply;
+$per-4-pos-5-rea-1 (emotion: $emo-4, to: $per-4-pos-5, by: $per-2) isa reaction;
+
+$per-4-pos-6 isa status-update, has content "$per-4-pos-6-content", has identifier "$per-4-pos-6";
+$per-4-pos-6-sha (content: $per-4-pos-6, by: $per-4, in: $tim-4) isa friends-sharing;
+$per-4-pos-6-com-1 isa comment, has content "$per-4-pos-6-com-1-content", has identifier "$per-4-pos-6-com-1";
+$per-4-pos-6-com-1-rep (to: $per-4-pos-6, content: $per-4-pos-6-com-1, by: $per-2) isa reply;
+$per-4-pos-6-com-1-com-1 isa comment, has content "$per-4-pos-6-com-1-com-1-content", has identifier "$per-4-pos-6-com-1-com-1";
+$per-4-pos-6-com-1-com-1-rep (to: $per-4-pos-6-com-1, content: $per-4-pos-6-com-1-com-1, by: $per-4) isa reply;
+$per-4-pos-6-rea-1 (emotion: $emo-1, to: $per-4-pos-6, by: $per-2) isa reaction;
+
+$per-4-pos-7 isa status-update, has content "$per-4-pos-7-content", has identifier "$per-4-pos-7";
+$per-4-pos-7-sha (content: $per-4-pos-7, by: $per-4, in: $tim-4) isa friends-sharing;
+$per-4-pos-7-com-1 isa comment, has content "$per-4-pos-7-com-1-content", has identifier "$per-4-pos-7-com-1";
+$per-4-pos-7-com-1-rep (to: $per-4-pos-7, content: $per-4-pos-7-com-1, by: $per-2) isa reply;
+$per-4-pos-7-com-1-com-1 isa comment, has content "$per-4-pos-7-com-1-com-1-content", has identifier "$per-4-pos-7-com-1-com-1";
+$per-4-pos-7-com-1-com-1-rep (to: $per-4-pos-7-com-1, content: $per-4-pos-7-com-1-com-1, by: $per-4) isa reply;
+$per-4-pos-7-rea-1 (emotion: $emo-1, to: $per-4-pos-7, by: $per-2) isa reaction;
+$per-4-pos-7-tag-1 (tagged: $per-2, in: $per-4-pos-7) isa tagging;
+$per-4-pos-8 isa photo, has file "$per-4-pos-8-file", has caption "$per-4-pos-8-caption", has identifier "$per-4-pos-8";
+$per-4-pos-8-sha (content: $per-4-pos-8, by: $per-4, in: $tim-4) isa friends-sharing;
+$per-4-pos-8-com-1 isa comment, has content "$per-4-pos-8-com-1-content", has identifier "$per-4-pos-8-com-1";
+$per-4-pos-8-com-1-rep (to: $per-4-pos-8, content: $per-4-pos-8-com-1, by: $per-2) isa reply;
+$per-4-pos-8-com-1-com-1 isa comment, has content "$per-4-pos-8-com-1-com-1-content", has identifier "$per-4-pos-8-com-1-com-1";
+$per-4-pos-8-com-1-com-1-rep (to: $per-4-pos-8-com-1, content: $per-4-pos-8-com-1-com-1, by: $per-4) isa reply;
+$per-4-pos-8-rea-1 (emotion: $emo-4, to: $per-4-pos-8, by: $per-2) isa reaction;
+
+$per-5-pos-1 isa video, has file "$per-5-pos-1-file", has caption "$per-5-pos-1-caption", has identifier "$per-5-pos-1";
+$per-5-pos-1-sha (content: $per-5-pos-1, by: $per-5, in: $tim-5) isa friends-sharing;
+$per-5-pos-1-com-1 isa comment, has content "$per-5-pos-1-com-1-content", has identifier "$per-5-pos-1-com-1";
+$per-5-pos-1-com-1-rep (to: $per-5-pos-1, content: $per-5-pos-1-com-1, by: $per-3) isa reply;
+$per-5-pos-1-com-1-com-1 isa comment, has content "$per-5-pos-1-com-1-com-1-content", has identifier "$per-5-pos-1-com-1-com-1";
+$per-5-pos-1-com-1-com-1-rep (to: $per-5-pos-1-com-1, content: $per-5-pos-1-com-1-com-1, by: $per-5) isa reply;
+$per-5-pos-1-rea-1 (emotion: $emo-5, to: $per-5-pos-1, by: $per-3) isa reaction;
+
+$per-5-pos-2 isa photo, has file "$per-5-pos-2-file", has caption "$per-5-pos-2-caption", has identifier "$per-5-pos-2";
+$per-5-pos-2-sha (content: $per-5-pos-2, by: $per-5, in: $tim-5) isa friends-sharing;
+$per-5-pos-2-com-1 isa comment, has content "$per-5-pos-2-com-1-content", has identifier "$per-5-pos-2-com-1";
+$per-5-pos-2-com-1-rep (to: $per-5-pos-2, content: $per-5-pos-2-com-1, by: $per-3) isa reply;
+$per-5-pos-2-com-1-com-1 isa comment, has content "$per-5-pos-2-com-1-com-1-content", has identifier "$per-5-pos-2-com-1-com-1";
+$per-5-pos-2-com-1-com-1-rep (to: $per-5-pos-2-com-1, content: $per-5-pos-2-com-1-com-1, by: $per-5) isa reply;
+$per-5-pos-2-rea-1 (emotion: $emo-2, to: $per-5-pos-2, by: $per-3) isa reaction;
+
+$per-5-pos-3 isa photo, has file "$per-5-pos-3-file", has caption "$per-5-pos-3-caption", has identifier "$per-5-pos-3";
+$per-5-pos-3-sha (content: $per-5-pos-3, by: $per-5, in: $tim-5) isa friends-sharing;
+$per-5-pos-3-com-1 isa comment, has content "$per-5-pos-3-com-1-content", has identifier "$per-5-pos-3-com-1";
+$per-5-pos-3-com-1-rep (to: $per-5-pos-3, content: $per-5-pos-3-com-1, by: $per-3) isa reply;
+$per-5-pos-3-com-1-com-1 isa comment, has content "$per-5-pos-3-com-1-com-1-content", has identifier "$per-5-pos-3-com-1-com-1";
+$per-5-pos-3-com-1-com-1-rep (to: $per-5-pos-3-com-1, content: $per-5-pos-3-com-1-com-1, by: $per-5) isa reply;
+$per-5-pos-3-rea-1 (emotion: $emo-1, to: $per-5-pos-3, by: $per-3) isa reaction;
+
+$per-5-pos-4 isa video, has file "$per-5-pos-4-file", has caption "$per-5-pos-4-caption", has identifier "$per-5-pos-4";
+$per-5-pos-4-sha (content: $per-5-pos-4, by: $per-5, in: $tim-5) isa friends-sharing;
+$per-5-pos-4-com-1 isa comment, has content "$per-5-pos-4-com-1-content", has identifier "$per-5-pos-4-com-1";
+$per-5-pos-4-com-1-rep (to: $per-5-pos-4, content: $per-5-pos-4-com-1, by: $per-3) isa reply;
+$per-5-pos-4-com-1-com-1 isa comment, has content "$per-5-pos-4-com-1-com-1-content", has identifier "$per-5-pos-4-com-1-com-1";
+$per-5-pos-4-com-1-com-1-rep (to: $per-5-pos-4-com-1, content: $per-5-pos-4-com-1-com-1, by: $per-5) isa reply;
+$per-5-pos-4-rea-1 (emotion: $emo-3, to: $per-5-pos-4, by: $per-3) isa reaction;
+$per-5-pos-4-tag-1 (tagged: $per-3, in: $per-5-pos-4) isa tagging;
+$per-6-pos-1 isa video, has file "$per-6-pos-1-file", has caption "$per-6-pos-1-caption", has identifier "$per-6-pos-1";
+$per-6-pos-1-sha (content: $per-6-pos-1, by: $per-6, in: $tim-6, hidden-from: $per-8) isa friends-with-exclusion-sharing;
+$per-6-pos-1-com-1 isa comment, has content "$per-6-pos-1-com-1-content", has identifier "$per-6-pos-1-com-1";
+$per-6-pos-1-com-1-rep (to: $per-6-pos-1, content: $per-6-pos-1-com-1, by: $per-7) isa reply;
+$per-6-pos-1-com-1-com-1 isa comment, has content "$per-6-pos-1-com-1-com-1-content", has identifier "$per-6-pos-1-com-1-com-1";
+$per-6-pos-1-com-1-com-1-rep (to: $per-6-pos-1-com-1, content: $per-6-pos-1-com-1-com-1, by: $per-6) isa reply;
+$per-6-pos-1-rea-1 (emotion: $emo-1, to: $per-6-pos-1, by: $per-7) isa reaction;
+
+$per-6-pos-2 isa video, has file "$per-6-pos-2-file", has caption "$per-6-pos-2-caption", has identifier "$per-6-pos-2";
+$per-6-pos-2-sha (content: $per-6-pos-2, by: $per-6, in: $tim-6) isa friends-sharing;
+$per-6-pos-2-com-1 isa comment, has content "$per-6-pos-2-com-1-content", has identifier "$per-6-pos-2-com-1";
+$per-6-pos-2-com-1-rep (to: $per-6-pos-2, content: $per-6-pos-2-com-1, by: $per-7) isa reply;
+$per-6-pos-2-com-1-com-1 isa comment, has content "$per-6-pos-2-com-1-com-1-content", has identifier "$per-6-pos-2-com-1-com-1";
+$per-6-pos-2-com-1-com-1-rep (to: $per-6-pos-2-com-1, content: $per-6-pos-2-com-1-com-1, by: $per-6) isa reply;
+$per-6-pos-2-rea-1 (emotion: $emo-1, to: $per-6-pos-2, by: $per-8) isa reaction;
+$per-6-pos-2-rea-2 (emotion: $emo-3, to: $per-6-pos-2, by: $per-7) isa reaction;
+
+$per-6-pos-3 isa status-update, has content "$per-6-pos-3-content", has identifier "$per-6-pos-3";
+$per-6-pos-3-sha (content: $per-6-pos-3, by: $per-6, in: $tim-6, with: $per-7) isa inclusive-sharing;
+$per-6-pos-3-com-1 isa comment, has content "$per-6-pos-3-com-1-content", has identifier "$per-6-pos-3-com-1";
+$per-6-pos-3-com-1-rep (to: $per-6-pos-3, content: $per-6-pos-3-com-1, by: $per-7) isa reply;
+$per-6-pos-3-com-1-com-1 isa comment, has content "$per-6-pos-3-com-1-com-1-content", has identifier "$per-6-pos-3-com-1-com-1";
+$per-6-pos-3-com-1-com-1-rep (to: $per-6-pos-3-com-1, content: $per-6-pos-3-com-1-com-1, by: $per-6) isa reply;
+$per-6-pos-3-rea-1 (emotion: $emo-3, to: $per-6-pos-3, by: $per-7) isa reaction;
+
+$per-6-pos-4 isa photo, has file "$per-6-pos-4-file", has caption "$per-6-pos-4-caption", has identifier "$per-6-pos-4";
+$per-6-pos-4-sha (content: $per-6-pos-4, by: $per-6, in: $tim-6) isa friends-sharing;
+$per-6-pos-4-com-1 isa comment, has content "$per-6-pos-4-com-1-content", has identifier "$per-6-pos-4-com-1";
+$per-6-pos-4-com-1-rep (to: $per-6-pos-4, content: $per-6-pos-4-com-1, by: $per-7) isa reply;
+$per-6-pos-4-com-1-com-1 isa comment, has content "$per-6-pos-4-com-1-com-1-content", has identifier "$per-6-pos-4-com-1-com-1";
+$per-6-pos-4-com-1-com-1-rep (to: $per-6-pos-4-com-1, content: $per-6-pos-4-com-1-com-1, by: $per-6) isa reply;
+$per-6-pos-4-com-2 isa comment, has content "$per-6-pos-4-com-2-content", has identifier "$per-6-pos-4-com-2";
+$per-6-pos-4-com-2-rep (to: $per-6-pos-4, content: $per-6-pos-4-com-2, by: $per-8) isa reply;
+$per-6-pos-4-rea-1 (emotion: $emo-5, to: $per-6-pos-4, by: $per-8) isa reaction;
+$per-6-pos-4-tag-1 (tagged: $per-8, in: $per-6-pos-4) isa tagging;
+$per-6-pos-5 isa status-update, has content "$per-6-pos-5-content", has identifier "$per-6-pos-5";
+$per-6-pos-5-sha (content: $per-6-pos-5, by: $per-6, in: $tim-6, with: $per-8) isa inclusive-sharing;
+$per-6-pos-5-com-1 isa comment, has content "$per-6-pos-5-com-1-content", has identifier "$per-6-pos-5-com-1";
+$per-6-pos-5-com-1-rep (to: $per-6-pos-5, content: $per-6-pos-5-com-1, by: $per-8) isa reply;
+$per-6-pos-5-com-1-com-1 isa comment, has content "$per-6-pos-5-com-1-com-1-content", has identifier "$per-6-pos-5-com-1-com-1";
+$per-6-pos-5-com-1-com-1-rep (to: $per-6-pos-5-com-1, content: $per-6-pos-5-com-1-com-1, by: $per-6) isa reply;
+$per-6-pos-5-rea-1 (emotion: $emo-5, to: $per-6-pos-5, by: $per-8) isa reaction;
+
+$per-6-pos-6 isa status-update, has content "$per-6-pos-6-content", has identifier "$per-6-pos-6";
+$per-6-pos-6-sha (content: $per-6-pos-6, by: $per-6, in: $tim-6, with: $per-7) isa inclusive-sharing;
+$per-6-pos-6-com-1 isa comment, has content "$per-6-pos-6-com-1-content", has identifier "$per-6-pos-6-com-1";
+$per-6-pos-6-com-1-rep (to: $per-6-pos-6, content: $per-6-pos-6-com-1, by: $per-7) isa reply;
+$per-6-pos-6-com-1-com-1 isa comment, has content "$per-6-pos-6-com-1-com-1-content", has identifier "$per-6-pos-6-com-1-com-1";
+$per-6-pos-6-com-1-com-1-rep (to: $per-6-pos-6-com-1, content: $per-6-pos-6-com-1-com-1, by: $per-6) isa reply;
+$per-6-pos-6-rea-1 (emotion: $emo-6, to: $per-6-pos-6, by: $per-7) isa reaction;
+
+$per-6-pos-7 isa photo, has file "$per-6-pos-7-file", has caption "$per-6-pos-7-caption", has identifier "$per-6-pos-7";
+$per-6-pos-7-sha (content: $per-6-pos-7, by: $per-6, in: $tim-6) isa friends-sharing;
+$per-6-pos-7-com-1 isa comment, has content "$per-6-pos-7-com-1-content", has identifier "$per-6-pos-7-com-1";
+$per-6-pos-7-com-1-rep (to: $per-6-pos-7, content: $per-6-pos-7-com-1, by: $per-8) isa reply;
+$per-6-pos-7-com-1-com-1 isa comment, has content "$per-6-pos-7-com-1-com-1-content", has identifier "$per-6-pos-7-com-1-com-1";
+$per-6-pos-7-com-1-com-1-rep (to: $per-6-pos-7-com-1, content: $per-6-pos-7-com-1-com-1, by: $per-6) isa reply;
+$per-6-pos-7-rea-1 (emotion: $emo-1, to: $per-6-pos-7, by: $per-7) isa reaction;
+$per-6-pos-7-tag-1 (tagged: $per-7, in: $per-6-pos-7) isa tagging;
+$per-7-pos-1 isa video, has file "$per-7-pos-1-file", has caption "$per-7-pos-1-caption", has identifier "$per-7-pos-1";
+$per-7-pos-1-sha (content: $per-7-pos-1, by: $per-7, in: $tim-7, with: $per-9) isa inclusive-sharing;
+$per-7-pos-1-com-1 isa comment, has content "$per-7-pos-1-com-1-content", has identifier "$per-7-pos-1-com-1";
+$per-7-pos-1-com-1-rep (to: $per-7-pos-1, content: $per-7-pos-1-com-1, by: $per-9) isa reply;
+$per-7-pos-1-com-1-com-1 isa comment, has content "$per-7-pos-1-com-1-com-1-content", has identifier "$per-7-pos-1-com-1-com-1";
+$per-7-pos-1-com-1-com-1-rep (to: $per-7-pos-1-com-1, content: $per-7-pos-1-com-1-com-1, by: $per-7) isa reply;
+$per-7-pos-1-rea-1 (emotion: $emo-1, to: $per-7-pos-1, by: $per-9) isa reaction;
+
+$per-7-pos-2 isa photo, has file "$per-7-pos-2-file", has caption "$per-7-pos-2-caption", has identifier "$per-7-pos-2";
+$per-7-pos-2-sha (content: $per-7-pos-2, by: $per-7, in: $tim-7, hidden-from: $per-9) isa friends-with-exclusion-sharing;
+$per-7-pos-2-com-1 isa comment, has content "$per-7-pos-2-com-1-content", has identifier "$per-7-pos-2-com-1";
+$per-7-pos-2-com-1-rep (to: $per-7-pos-2, content: $per-7-pos-2-com-1, by: $per-6) isa reply;
+$per-7-pos-2-com-1-com-1 isa comment, has content "$per-7-pos-2-com-1-com-1-content", has identifier "$per-7-pos-2-com-1-com-1";
+$per-7-pos-2-com-1-com-1-rep (to: $per-7-pos-2-com-1, content: $per-7-pos-2-com-1-com-1, by: $per-7) isa reply;
+$per-7-pos-2-rea-1 (emotion: $emo-6, to: $per-7-pos-2, by: $per-6) isa reaction;
+
+$per-7-pos-3 isa video, has file "$per-7-pos-3-file", has caption "$per-7-pos-3-caption", has identifier "$per-7-pos-3";
+$per-7-pos-3-sha (content: $per-7-pos-3, by: $per-7, in: $tim-7) isa friends-sharing;
+$per-7-pos-3-com-1 isa comment, has content "$per-7-pos-3-com-1-content", has identifier "$per-7-pos-3-com-1";
+$per-7-pos-3-com-1-rep (to: $per-7-pos-3, content: $per-7-pos-3-com-1, by: $per-6) isa reply;
+$per-7-pos-3-com-1-com-1 isa comment, has content "$per-7-pos-3-com-1-com-1-content", has identifier "$per-7-pos-3-com-1-com-1";
+$per-7-pos-3-com-1-com-1-rep (to: $per-7-pos-3-com-1, content: $per-7-pos-3-com-1-com-1, by: $per-7) isa reply;
+$per-7-pos-3-rea-1 (emotion: $emo-5, to: $per-7-pos-3, by: $per-6) isa reaction;
+
+$per-7-pos-4 isa photo, has file "$per-7-pos-4-file", has caption "$per-7-pos-4-caption", has identifier "$per-7-pos-4";
+$per-7-pos-4-sha (content: $per-7-pos-4, by: $per-7, in: $tim-7) isa public-sharing;
+$per-7-pos-4-com-1 isa comment, has content "$per-7-pos-4-com-1-content", has identifier "$per-7-pos-4-com-1";
+$per-7-pos-4-com-1-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-1, by: $per-9) isa reply;
+$per-7-pos-4-com-1-com-1 isa comment, has content "$per-7-pos-4-com-1-com-1-content", has identifier "$per-7-pos-4-com-1-com-1";
+$per-7-pos-4-com-1-com-1-rep (to: $per-7-pos-4-com-1, content: $per-7-pos-4-com-1-com-1, by: $per-7) isa reply;
+$per-7-pos-4-com-2 isa comment, has content "$per-7-pos-4-com-2-content", has identifier "$per-7-pos-4-com-2";
+$per-7-pos-4-com-2-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-2, by: $per-2) isa reply;
+$per-7-pos-4-com-3 isa comment, has content "$per-7-pos-4-com-3-content", has identifier "$per-7-pos-4-com-3";
+$per-7-pos-4-com-3-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-3, by: $per-11) isa reply;
+$per-7-pos-4-com-3-com-1 isa comment, has content "$per-7-pos-4-com-3-com-1-content", has identifier "$per-7-pos-4-com-3-com-1";
+$per-7-pos-4-com-3-com-1-rep (to: $per-7-pos-4-com-3, content: $per-7-pos-4-com-3-com-1, by: $per-7) isa reply;
+$per-7-pos-4-com-4 isa comment, has content "$per-7-pos-4-com-4-content", has identifier "$per-7-pos-4-com-4";
+$per-7-pos-4-com-4-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-4, by: $per-13) isa reply;
+$per-7-pos-4-com-5 isa comment, has content "$per-7-pos-4-com-5-content", has identifier "$per-7-pos-4-com-5";
+$per-7-pos-4-com-5-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-5, by: $per-4) isa reply;
+$per-7-pos-4-com-5-com-1 isa comment, has content "$per-7-pos-4-com-5-com-1-content", has identifier "$per-7-pos-4-com-5-com-1";
+$per-7-pos-4-com-5-com-1-rep (to: $per-7-pos-4-com-5, content: $per-7-pos-4-com-5-com-1, by: $per-7) isa reply;
+$per-7-pos-4-com-6 isa comment, has content "$per-7-pos-4-com-6-content", has identifier "$per-7-pos-4-com-6";
+$per-7-pos-4-com-6-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-6, by: $per-16) isa reply;
+$per-7-pos-4-com-7 isa comment, has content "$per-7-pos-4-com-7-content", has identifier "$per-7-pos-4-com-7";
+$per-7-pos-4-com-7-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-7, by: $per-1) isa reply;
+$per-7-pos-4-com-7-com-1 isa comment, has content "$per-7-pos-4-com-7-com-1-content", has identifier "$per-7-pos-4-com-7-com-1";
+$per-7-pos-4-com-7-com-1-rep (to: $per-7-pos-4-com-7, content: $per-7-pos-4-com-7-com-1, by: $per-7) isa reply;
+$per-7-pos-4-com-8 isa comment, has content "$per-7-pos-4-com-8-content", has identifier "$per-7-pos-4-com-8";
+$per-7-pos-4-com-8-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-8, by: $per-14) isa reply;
+$per-7-pos-4-com-9 isa comment, has content "$per-7-pos-4-com-9-content", has identifier "$per-7-pos-4-com-9";
+$per-7-pos-4-com-9-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-9, by: $per-8) isa reply;
+$per-7-pos-4-com-9-com-1 isa comment, has content "$per-7-pos-4-com-9-com-1-content", has identifier "$per-7-pos-4-com-9-com-1";
+$per-7-pos-4-com-9-com-1-rep (to: $per-7-pos-4-com-9, content: $per-7-pos-4-com-9-com-1, by: $per-7) isa reply;
+$per-7-pos-4-com-10 isa comment, has content "$per-7-pos-4-com-10-content", has identifier "$per-7-pos-4-com-10";
+$per-7-pos-4-com-10-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-10, by: $per-3) isa reply;
+$per-7-pos-4-com-11-rep (to: $per-7-pos-4, content: $per-7-pos-4-com-11, by: $per-12) isa reply;
+$per-7-pos-4-com-11 isa comment, has content "$per-7-pos-4-com-11-content", has identifier "$per-7-pos-4-com-11";
+$per-7-pos-4-com-11-com-1 isa comment, has content "$per-7-pos-4-com-11-com-1-content", has identifier "$per-7-pos-4-com-11-com-1";
+$per-7-pos-4-com-11-com-1-rep (to: $per-7-pos-4-com-11, content: $per-7-pos-4-com-11-com-1, by: $per-7) isa reply;
+$per-7-pos-4-rea-1 (emotion: $emo-1, to: $per-7-pos-4, by: $per-9) isa reaction;
+$per-7-pos-4-rea-2 (emotion: $emo-4, to: $per-7-pos-4, by: $per-15) isa reaction;
+$per-7-pos-4-rea-3 (emotion: $emo-2, to: $per-7-pos-4, by: $per-14) isa reaction;
+$per-7-pos-4-rea-4 (emotion: $emo-1, to: $per-7-pos-4, by: $per-12) isa reaction;
+$per-7-pos-4-rea-5 (emotion: $emo-5, to: $per-7-pos-4, by: $per-5) isa reaction;
+$per-7-pos-4-tag-1 (tagged: $per-6, in: $per-7-pos-4) isa tagging;
+$per-7-pos-5 isa photo, has file "$per-7-pos-5-file", has caption "$per-7-pos-5-caption", has identifier "$per-7-pos-5";
+$per-7-pos-5-sha (content: $per-7-pos-5, by: $per-7, in: $tim-7) isa friends-sharing;
+$per-7-pos-5-com-1 isa comment, has content "$per-7-pos-5-com-1-content", has identifier "$per-7-pos-5-com-1";
+$per-7-pos-5-com-1-rep (to: $per-7-pos-5, content: $per-7-pos-5-com-1, by: $per-9) isa reply;
+$per-7-pos-5-com-1-com-1 isa comment, has content "$per-7-pos-5-com-1-com-1-content", has identifier "$per-7-pos-5-com-1-com-1";
+$per-7-pos-5-com-1-com-1-rep (to: $per-7-pos-5-com-1, content: $per-7-pos-5-com-1-com-1, by: $per-7) isa reply;
+$per-7-pos-5-rea-1 (emotion: $emo-3, to: $per-7-pos-5, by: $per-9) isa reaction;
+
+$per-7-pos-6 isa photo, has file "$per-7-pos-6-file", has caption "$per-7-pos-6-caption", has identifier "$per-7-pos-6";
+$per-7-pos-6-sha (content: $per-7-pos-6, by: $per-7, in: $tim-7, with: $per-6) isa inclusive-sharing;
+$per-7-pos-6-com-1 isa comment, has content "$per-7-pos-6-com-1-content", has identifier "$per-7-pos-6-com-1";
+$per-7-pos-6-com-1-rep (to: $per-7-pos-6, content: $per-7-pos-6-com-1, by: $per-6) isa reply;
+$per-7-pos-6-com-1-com-1 isa comment, has content "$per-7-pos-6-com-1-com-1-content", has identifier "$per-7-pos-6-com-1-com-1";
+$per-7-pos-6-com-1-com-1-rep (to: $per-7-pos-6-com-1, content: $per-7-pos-6-com-1-com-1, by: $per-7) isa reply;
+$per-7-pos-6-rea-1 (emotion: $emo-5, to: $per-7-pos-6, by: $per-6) isa reaction;
+
+$per-7-pos-7 isa status-update, has content "$per-7-pos-7-content", has identifier "$per-7-pos-7";
+$per-7-pos-7-sha (content: $per-7-pos-7, by: $per-7, in: $tim-7) isa friends-sharing;
+$per-7-pos-7-com-1 isa comment, has content "$per-7-pos-7-com-1-content", has identifier "$per-7-pos-7-com-1";
+$per-7-pos-7-com-1-rep (to: $per-7-pos-7, content: $per-7-pos-7-com-1, by: $per-9) isa reply;
+$per-7-pos-7-com-1-com-1 isa comment, has content "$per-7-pos-7-com-1-com-1-content", has identifier "$per-7-pos-7-com-1-com-1";
+$per-7-pos-7-com-1-com-1-rep (to: $per-7-pos-7-com-1, content: $per-7-pos-7-com-1-com-1, by: $per-7) isa reply;
+$per-7-pos-7-com-2 isa comment, has content "$per-7-pos-7-com-2-content", has identifier "$per-7-pos-7-com-2";
+$per-7-pos-7-com-2-rep (to: $per-7-pos-7, content: $per-7-pos-7-com-2, by: $per-6) isa reply;
+$per-7-pos-7-rea-1 (emotion: $emo-3, to: $per-7-pos-7, by: $per-6) isa reaction;
+$per-7-pos-7-tag-1 (tagged: $per-6, in: $per-7-pos-7) isa tagging;
+$per-8-pos-1 isa status-update, has content "$per-8-pos-1-content", has identifier "$per-8-pos-1";
+$per-8-pos-1-sha (content: $per-8-pos-1, by: $per-8, in: $tim-8) isa friends-sharing;
+$per-8-pos-1-com-1 isa comment, has content "$per-8-pos-1-com-1-content", has identifier "$per-8-pos-1-com-1";
+$per-8-pos-1-com-1-rep (to: $per-8-pos-1, content: $per-8-pos-1-com-1, by: $per-6) isa reply;
+$per-8-pos-1-com-1-com-1 isa comment, has content "$per-8-pos-1-com-1-com-1-content", has identifier "$per-8-pos-1-com-1-com-1";
+$per-8-pos-1-com-1-com-1-rep (to: $per-8-pos-1-com-1, content: $per-8-pos-1-com-1-com-1, by: $per-8) isa reply;
+$per-8-pos-1-rea-1 (emotion: $emo-3, to: $per-8-pos-1, by: $per-6) isa reaction;
+
+$per-8-pos-2 isa status-update, has content "$per-8-pos-2-content", has identifier "$per-8-pos-2";
+$per-8-pos-2-sha (content: $per-8-pos-2, by: $per-8, in: $tim-8) isa friends-sharing;
+$per-8-pos-2-com-1 isa comment, has content "$per-8-pos-2-com-1-content", has identifier "$per-8-pos-2-com-1";
+$per-8-pos-2-com-1-rep (to: $per-8-pos-2, content: $per-8-pos-2-com-1, by: $per-6) isa reply;
+$per-8-pos-2-com-1-com-1 isa comment, has content "$per-8-pos-2-com-1-com-1-content", has identifier "$per-8-pos-2-com-1-com-1";
+$per-8-pos-2-com-1-com-1-rep (to: $per-8-pos-2-com-1, content: $per-8-pos-2-com-1-com-1, by: $per-8) isa reply;
+$per-8-pos-2-rea-1 (emotion: $emo-6, to: $per-8-pos-2, by: $per-6) isa reaction;
+
+$per-8-pos-3 isa video, has file "$per-8-pos-3-file", has caption "$per-8-pos-3-caption", has identifier "$per-8-pos-3";
+$per-8-pos-3-sha (content: $per-8-pos-3, by: $per-8, in: $tim-8) isa friends-sharing;
+$per-8-pos-3-com-1 isa comment, has content "$per-8-pos-3-com-1-content", has identifier "$per-8-pos-3-com-1";
+$per-8-pos-3-com-1-rep (to: $per-8-pos-3, content: $per-8-pos-3-com-1, by: $per-6) isa reply;
+$per-8-pos-3-com-1-com-1 isa comment, has content "$per-8-pos-3-com-1-com-1-content", has identifier "$per-8-pos-3-com-1-com-1";
+$per-8-pos-3-com-1-com-1-rep (to: $per-8-pos-3-com-1, content: $per-8-pos-3-com-1-com-1, by: $per-8) isa reply;
+$per-8-pos-3-rea-1 (emotion: $emo-2, to: $per-8-pos-3, by: $per-6) isa reaction;
+
+$per-9-pos-1 isa photo, has file "$per-9-pos-1-file", has caption "$per-9-pos-1-caption", has identifier "$per-9-pos-1";
+$per-9-pos-1-sha (content: $per-9-pos-1, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-1-com-1 isa comment, has content "$per-9-pos-1-com-1-content", has identifier "$per-9-pos-1-com-1";
+$per-9-pos-1-com-1-rep (to: $per-9-pos-1, content: $per-9-pos-1-com-1, by: $per-7) isa reply;
+$per-9-pos-1-com-1-com-1 isa comment, has content "$per-9-pos-1-com-1-com-1-content", has identifier "$per-9-pos-1-com-1-com-1";
+$per-9-pos-1-com-1-com-1-rep (to: $per-9-pos-1-com-1, content: $per-9-pos-1-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-1-rea-1 (emotion: $emo-4, to: $per-9-pos-1, by: $per-7) isa reaction;
+#
+$per-9-pos-2 isa photo, has file "$per-9-pos-2-file", has caption "$per-9-pos-2-caption", has identifier "$per-9-pos-2";
+$per-9-pos-2-sha (content: $per-9-pos-2, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-2-com-1 isa comment, has content "$per-9-pos-2-com-1-content", has identifier "$per-9-pos-2-com-1";
+$per-9-pos-2-com-1-rep (to: $per-9-pos-2, content: $per-9-pos-2-com-1, by: $per-7) isa reply;
+$per-9-pos-2-com-1-com-1 isa comment, has content "$per-9-pos-2-com-1-com-1-content", has identifier "$per-9-pos-2-com-1-com-1";
+$per-9-pos-2-com-1-com-1-rep (to: $per-9-pos-2-com-1, content: $per-9-pos-2-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-2-rea-1 (emotion: $emo-2, to: $per-9-pos-2, by: $per-7) isa reaction;
+
+$per-9-pos-3 isa video, has file "$per-9-pos-3-file", has caption "$per-9-pos-3-caption", has identifier "$per-9-pos-3";
+$per-9-pos-3-sha (content: $per-9-pos-3, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-3-com-1 isa comment, has content "$per-9-pos-3-com-1-content", has identifier "$per-9-pos-3-com-1";
+$per-9-pos-3-com-1-rep (to: $per-9-pos-3, content: $per-9-pos-3-com-1, by: $per-7) isa reply;
+$per-9-pos-3-com-1-com-1 isa comment, has content "$per-9-pos-3-com-1-com-1-content", has identifier "$per-9-pos-3-com-1-com-1";
+$per-9-pos-3-com-1-com-1-rep (to: $per-9-pos-3-com-1, content: $per-9-pos-3-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-3-rea-1 (emotion: $emo-1, to: $per-9-pos-3, by: $per-7) isa reaction;
+
+$per-9-pos-4 isa photo, has file "$per-9-pos-4-file", has caption "$per-9-pos-4-caption", has identifier "$per-9-pos-4";
+$per-9-pos-4-sha (content: $per-9-pos-4, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-4-com-1 isa comment, has content "$per-9-pos-4-com-1-content", has identifier "$per-9-pos-4-com-1";
+$per-9-pos-4-com-1-rep (to: $per-9-pos-4, content: $per-9-pos-4-com-1, by: $per-7) isa reply;
+$per-9-pos-4-com-1-com-1 isa comment, has content "$per-9-pos-4-com-1-com-1-content", has identifier "$per-9-pos-4-com-1-com-1";
+$per-9-pos-4-com-1-com-1-rep (to: $per-9-pos-4-com-1, content: $per-9-pos-4-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-4-rea-1 (emotion: $emo-3, to: $per-9-pos-4, by: $per-7) isa reaction;
+$per-9-pos-4-tag-1 (tagged: $per-7, in: $per-9-pos-4) isa tagging;
+
+$per-9-pos-5 isa status-update, has content "$per-9-pos-5-content", has identifier "$per-9-pos-5";
+$per-9-pos-5-sha (content: $per-9-pos-5, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-5-com-1 isa comment, has content "$per-9-pos-5-com-1-content", has identifier "$per-9-pos-5-com-1";
+$per-9-pos-5-com-1-rep (to: $per-9-pos-5, content: $per-9-pos-5-com-1, by: $per-7) isa reply;
+$per-9-pos-5-com-1-com-1 isa comment, has content "$per-9-pos-5-com-1-com-1-content", has identifier "$per-9-pos-5-com-1-com-1";
+$per-9-pos-5-com-1-com-1-rep (to: $per-9-pos-5-com-1, content: $per-9-pos-5-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-5-rea-1 (emotion: $emo-5, to: $per-9-pos-5, by: $per-7) isa reaction;
+
+$per-9-pos-6 isa status-update, has content "$per-9-pos-6-content", has identifier "$per-9-pos-6";
+$per-9-pos-6-sha (content: $per-9-pos-6, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-6-com-1 isa comment, has content "$per-9-pos-6-com-1-content", has identifier "$per-9-pos-6-com-1";
+$per-9-pos-6-com-1-rep (to: $per-9-pos-6, content: $per-9-pos-6-com-1, by: $per-7) isa reply;
+$per-9-pos-6-com-1-com-1 isa comment, has content "$per-9-pos-6-com-1-com-1-content", has identifier "$per-9-pos-6-com-1-com-1";
+$per-9-pos-6-com-1-com-1-rep (to: $per-9-pos-6-com-1, content: $per-9-pos-6-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-6-rea-1 (emotion: $emo-5, to: $per-9-pos-6, by: $per-7) isa reaction;
+
+$per-9-pos-7 isa status-update, has content "$per-9-pos-7-content", has identifier "$per-9-pos-7";
+$per-9-pos-7-sha (content: $per-9-pos-7, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-7-com-1 isa comment, has content "$per-9-pos-7-com-1-content", has identifier "$per-9-pos-7-com-1";
+$per-9-pos-7-com-1-rep (to: $per-9-pos-7, content: $per-9-pos-7-com-1, by: $per-7) isa reply;
+$per-9-pos-7-com-1-com-1 isa comment, has content "$per-9-pos-7-com-1-com-1-content", has identifier "$per-9-pos-7-com-1-com-1";
+$per-9-pos-7-com-1-com-1-rep (to: $per-9-pos-7-com-1, content: $per-9-pos-7-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-7-rea-1 (emotion: $emo-2, to: $per-9-pos-7, by: $per-7) isa reaction;
+$per-9-pos-7-tag-1 (tagged: $per-7, in: $per-9-pos-7) isa tagging;
+
+$per-9-pos-8 isa photo, has file "$per-9-pos-8-file", has caption "$per-9-pos-8-caption", has identifier "$per-9-pos-8";
+$per-9-pos-8-sha (content: $per-9-pos-8, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-8-com-1 isa comment, has content "$per-9-pos-8-com-1-content", has identifier "$per-9-pos-8-com-1";
+$per-9-pos-8-com-1-rep (to: $per-9-pos-8, content: $per-9-pos-8-com-1, by: $per-7) isa reply;
+$per-9-pos-8-com-1-com-1 isa comment, has content "$per-9-pos-8-com-1-com-1-content", has identifier "$per-9-pos-8-com-1-com-1";
+$per-9-pos-8-com-1-com-1-rep (to: $per-9-pos-8-com-1, content: $per-9-pos-8-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-8-rea-1 (emotion: $emo-5, to: $per-9-pos-8, by: $per-7) isa reaction;
+
+$per-9-pos-9 isa photo, has file "$per-9-pos-9-file", has caption "$per-9-pos-9-caption", has identifier "$per-9-pos-9";
+$per-9-pos-9-sha (content: $per-9-pos-9, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-9-com-1 isa comment, has content "$per-9-pos-9-com-1-content", has identifier "$per-9-pos-9-com-1";
+$per-9-pos-9-com-1-rep (to: $per-9-pos-9, content: $per-9-pos-9-com-1, by: $per-7) isa reply;
+$per-9-pos-9-com-1-com-1 isa comment, has content "$per-9-pos-9-com-1-com-1-content", has identifier "$per-9-pos-9-com-1-com-1";
+$per-9-pos-9-com-1-com-1-rep (to: $per-9-pos-9-com-1, content: $per-9-pos-9-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-9-rea-1 (emotion: $emo-2, to: $per-9-pos-9, by: $per-7) isa reaction;
+
+$per-9-pos-10 isa video, has file "$per-9-pos-10-file", has caption "$per-9-pos-10-caption", has identifier "$per-9-pos-10";
+$per-9-pos-10-sha (content: $per-9-pos-10, by: $per-9, in: $tim-9) isa friends-sharing;
+$per-9-pos-10-com-1 isa comment, has content "$per-9-pos-10-com-1-content", has identifier "$per-9-pos-10-com-1";
+$per-9-pos-10-com-1-rep (to: $per-9-pos-10, content: $per-9-pos-10-com-1, by: $per-7) isa reply;
+$per-9-pos-10-com-1-com-1 isa comment, has content "$per-9-pos-10-com-1-com-1-content", has identifier "$per-9-pos-10-com-1-com-1";
+$per-9-pos-10-com-1-com-1-rep (to: $per-9-pos-10-com-1, content: $per-9-pos-10-com-1-com-1, by: $per-9) isa reply;
+$per-9-pos-10-rea-1 (emotion: $emo-5, to: $per-9-pos-10, by: $per-7) isa reaction;
+$per-9-pos-10-tag-1 (tagged: $per-7, in: $per-9-pos-10) isa tagging;
+
+$per-10-pos-1 isa video, has file "$per-10-pos-1-file", has caption "$per-10-pos-1-caption", has identifier "$per-10-pos-1";
+$per-10-pos-1-sha (content: $per-10-pos-1, by: $per-10, in: $tim-10) isa friends-sharing;
+$per-10-pos-1-com-1 isa comment, has content "$per-10-pos-1-com-1-content", has identifier "$per-10-pos-1-com-1";
+$per-10-pos-1-com-1-rep (to: $per-10-pos-1, content: $per-10-pos-1-com-1, by: $per-11) isa reply;
+$per-10-pos-1-com-1-com-1 isa comment, has content "$per-10-pos-1-com-1-com-1-content", has identifier "$per-10-pos-1-com-1-com-1";
+$per-10-pos-1-com-1-com-1-rep (to: $per-10-pos-1-com-1, content: $per-10-pos-1-com-1-com-1, by: $per-10) isa reply;
+$per-10-pos-1-rea-1 (emotion: $emo-5, to: $per-10-pos-1, by: $per-11) isa reaction;
+
+$per-10-pos-2 isa status-update, has content "$per-10-pos-2-content", has identifier "$per-10-pos-2";
+$per-10-pos-2-sha (content: $per-10-pos-2, by: $per-10, in: $tim-10) isa friends-sharing;
+$per-10-pos-2-com-1 isa comment, has content "$per-10-pos-2-com-1-content", has identifier "$per-10-pos-2-com-1";
+$per-10-pos-2-com-1-rep (to: $per-10-pos-2, content: $per-10-pos-2-com-1, by: $per-11) isa reply;
+$per-10-pos-2-com-1-com-1 isa comment, has content "$per-10-pos-2-com-1-com-1-content", has identifier "$per-10-pos-2-com-1-com-1";
+$per-10-pos-2-com-1-com-1-rep (to: $per-10-pos-2-com-1, content: $per-10-pos-2-com-1-com-1, by: $per-10) isa reply;
+$per-10-pos-2-rea-1 (emotion: $emo-1, to: $per-10-pos-2, by: $per-11) isa reaction;
+
+$per-10-pos-3 isa photo, has file "$per-10-pos-3-file", has caption "$per-10-pos-3-caption", has identifier "$per-10-pos-3";
+$per-10-pos-3-sha (content: $per-10-pos-3, by: $per-10, in: $tim-10) isa friends-sharing;
+$per-10-pos-3-com-1 isa comment, has content "$per-10-pos-3-com-1-content", has identifier "$per-10-pos-3-com-1";
+$per-10-pos-3-com-1-rep (to: $per-10-pos-3, content: $per-10-pos-3-com-1, by: $per-11) isa reply;
+$per-10-pos-3-com-1-com-1 isa comment, has content "$per-10-pos-3-com-1-com-1-content", has identifier "$per-10-pos-3-com-1-com-1";
+$per-10-pos-3-com-1-com-1-rep (to: $per-10-pos-3-com-1, content: $per-10-pos-3-com-1-com-1, by: $per-10) isa reply;
+$per-10-pos-3-rea-1 (emotion: $emo-3, to: $per-10-pos-3, by: $per-11) isa reaction;
+
+$per-11-pos-1 isa video, has file "$per-11-pos-1-file", has caption "$per-11-pos-1-caption", has identifier "$per-11-pos-1";
+$per-11-pos-1-sha (content: $per-11-pos-1, by: $per-11, in: $tim-11) isa friends-sharing;
+$per-11-pos-1-com-1 isa comment, has content "$per-11-pos-1-com-1-content", has identifier "$per-11-pos-1-com-1";
+$per-11-pos-1-com-1-rep (to: $per-11-pos-1, content: $per-11-pos-1-com-1, by: $per-13) isa reply;
+$per-11-pos-1-com-1-com-1 isa comment, has content "$per-11-pos-1-com-1-com-1-content", has identifier "$per-11-pos-1-com-1-com-1";
+$per-11-pos-1-com-1-com-1-rep (to: $per-11-pos-1-com-1, content: $per-11-pos-1-com-1-com-1, by: $per-11) isa reply;
+$per-11-pos-1-rea-1 (emotion: $emo-3, to: $per-11-pos-1, by: $per-10) isa reaction;
+$per-11-pos-1-rea-2 (emotion: $emo-2, to: $per-11-pos-1, by: $per-13) isa reaction;
+
+$per-11-pos-2 isa status-update, has content "$per-11-pos-2-content", has identifier "$per-11-pos-2";
+$per-11-pos-2-sha (content: $per-11-pos-2, by: $per-11, in: $tim-11, with: $per-10) isa inclusive-sharing;
+$per-11-pos-2-com-1 isa comment, has content "$per-11-pos-2-com-1-content", has identifier "$per-11-pos-2-com-1";
+$per-11-pos-2-com-1-rep (to: $per-11-pos-2, content: $per-11-pos-2-com-1, by: $per-10) isa reply;
+$per-11-pos-2-com-1-com-1 isa comment, has content "$per-11-pos-2-com-1-com-1-content", has identifier "$per-11-pos-2-com-1-com-1";
+$per-11-pos-2-com-1-com-1-rep (to: $per-11-pos-2-com-1, content: $per-11-pos-2-com-1-com-1, by: $per-11) isa reply;
+$per-11-pos-2-rea-1 (emotion: $emo-1, to: $per-11-pos-2, by: $per-10) isa reaction;
+
+$per-11-pos-3 isa photo, has file "$per-11-pos-3-file", has caption "$per-11-pos-3-caption", has identifier "$per-11-pos-3";
+$per-11-pos-3-sha (content: $per-11-pos-3, by: $per-11, in: $tim-11, hidden-from: $per-10) isa friends-with-exclusion-sharing;
+$per-11-pos-3-com-1 isa comment, has content "$per-11-pos-3-com-1-content", has identifier "$per-11-pos-3-com-1";
+$per-11-pos-3-com-1-rep (to: $per-11-pos-3, content: $per-11-pos-3-com-1, by: $per-13) isa reply;
+$per-11-pos-3-com-1-com-1 isa comment, has content "$per-11-pos-3-com-1-com-1-content", has identifier "$per-11-pos-3-com-1-com-1";
+$per-11-pos-3-com-1-com-1-rep (to: $per-11-pos-3-com-1, content: $per-11-pos-3-com-1-com-1, by: $per-11) isa reply;
+$per-11-pos-3-rea-1 (emotion: $emo-4, to: $per-11-pos-3, by: $per-13) isa reaction;
+
+$per-11-pos-4 isa video, has file "$per-11-pos-4-file", has caption "$per-11-pos-4-caption", has identifier "$per-11-pos-4";
+$per-11-pos-4-sha (content: $per-11-pos-4, by: $per-11, in: $tim-11, with: $per-10) isa inclusive-sharing;
+$per-11-pos-4-com-1 isa comment, has content "$per-11-pos-4-com-1-content", has identifier "$per-11-pos-4-com-1";
+$per-11-pos-4-com-1-rep (to: $per-11-pos-4, content: $per-11-pos-4-com-1, by: $per-10) isa reply;
+$per-11-pos-4-com-1-com-1 isa comment, has content "$per-11-pos-4-com-1-com-1-content", has identifier "$per-11-pos-4-com-1-com-1";
+$per-11-pos-4-com-1-com-1-rep (to: $per-11-pos-4-com-1, content: $per-11-pos-4-com-1-com-1, by: $per-11) isa reply;
+$per-11-pos-4-rea-1 (emotion: $emo-6, to: $per-11-pos-4, by: $per-10) isa reaction;
+$per-11-pos-4-tag-1 (tagged: $per-10, in: $per-11-pos-4) isa tagging;
+
+$per-12-pos-1 isa photo, has file "$per-12-pos-1-file", has caption "$per-12-pos-1-caption", has identifier "$per-12-pos-1";
+$per-12-pos-1-sha (content: $per-12-pos-1, by: $per-12, in: $tim-12) isa friends-sharing;
+$per-12-pos-1-com-1 isa comment, has content "$per-12-pos-1-com-1-content", has identifier "$per-12-pos-1-com-1";
+$per-12-pos-1-com-1-rep (to: $per-12-pos-1, content: $per-12-pos-1-com-1, by: $per-13) isa reply;
+$per-12-pos-1-com-1-com-1 isa comment, has content "$per-12-pos-1-com-1-com-1-content", has identifier "$per-12-pos-1-com-1-com-1";
+$per-12-pos-1-com-1-com-1-rep (to: $per-12-pos-1-com-1, content: $per-12-pos-1-com-1-com-1, by: $per-12) isa reply;
+$per-12-pos-1-rea-1 (emotion: $emo-3, to: $per-12-pos-1, by: $per-13) isa reaction;
+
+$per-12-pos-2 isa status-update, has content "$per-12-pos-2-content", has identifier "$per-12-pos-2";
+$per-12-pos-2-sha (content: $per-12-pos-2, by: $per-12, in: $tim-12) isa friends-sharing;
+$per-12-pos-2-com-1 isa comment, has content "$per-12-pos-2-com-1-content", has identifier "$per-12-pos-2-com-1";
+$per-12-pos-2-com-1-rep (to: $per-12-pos-2, content: $per-12-pos-2-com-1, by: $per-13) isa reply;
+$per-12-pos-2-com-1-com-1 isa comment, has content "$per-12-pos-2-com-1-com-1-content", has identifier "$per-12-pos-2-com-1-com-1";
+$per-12-pos-2-com-1-com-1-rep (to: $per-12-pos-2-com-1, content: $per-12-pos-2-com-1-com-1, by: $per-12) isa reply;
+$per-12-pos-2-rea-1 (emotion: $emo-1, to: $per-12-pos-2, by: $per-13) isa reaction;
+
+$per-12-pos-3 isa photo, has file "$per-12-pos-3-file", has caption "$per-12-pos-3-caption", has identifier "$per-12-pos-3";
+$per-12-pos-3-sha (content: $per-12-pos-3, by: $per-12, in: $tim-12) isa friends-sharing;
+$per-12-pos-3-com-1 isa comment, has content "$per-12-pos-3-com-1-content", has identifier "$per-12-pos-3-com-1";
+$per-12-pos-3-com-1-rep (to: $per-12-pos-3, content: $per-12-pos-3-com-1, by: $per-13) isa reply;
+$per-12-pos-3-com-1-com-1 isa comment, has content "$per-12-pos-3-com-1-com-1-content", has identifier "$per-12-pos-3-com-1-com-1";
+$per-12-pos-3-com-1-com-1-rep (to: $per-12-pos-3-com-1, content: $per-12-pos-3-com-1-com-1, by: $per-12) isa reply;
+$per-12-pos-3-rea-1 (emotion: $emo-1, to: $per-12-pos-3, by: $per-13) isa reaction;
+
+$per-12-pos-4 isa status-update, has content "$per-12-pos-4-content", has identifier "$per-12-pos-4";
+$per-12-pos-4-sha (content: $per-12-pos-4, by: $per-12, in: $tim-12) isa friends-sharing;
+$per-12-pos-4-com-1 isa comment, has content "$per-12-pos-4-com-1-content", has identifier "$per-12-pos-4-com-1";
+$per-12-pos-4-com-1-rep (to: $per-12-pos-4, content: $per-12-pos-4-com-1, by: $per-13) isa reply;
+$per-12-pos-4-com-1-com-1 isa comment, has content "$per-12-pos-4-com-1-com-1-content", has identifier "$per-12-pos-4-com-1-com-1";
+$per-12-pos-4-com-1-com-1-rep (to: $per-12-pos-4-com-1, content: $per-12-pos-4-com-1-com-1, by: $per-12) isa reply;
+$per-12-pos-4-rea-1 (emotion: $emo-4, to: $per-12-pos-4, by: $per-13) isa reaction;
+$per-12-pos-4-tag-1 (tagged: $per-13, in: $per-12-pos-4) isa tagging;
+
+$per-13-pos-1 isa status-update, has content "$per-13-pos-1-content", has identifier "$per-13-pos-1";
+$per-13-pos-1-sha (content: $per-13-pos-1, by: $per-13, in: $tim-13) isa friends-sharing;
+$per-13-pos-1-com-1 isa comment, has content "$per-13-pos-1-com-1-content", has identifier "$per-13-pos-1-com-1";
+$per-13-pos-1-com-1-rep (to: $per-13-pos-1, content: $per-13-pos-1-com-1, by: $per-12) isa reply;
+$per-13-pos-1-com-1-com-1 isa comment, has content "$per-13-pos-1-com-1-com-1-content", has identifier "$per-13-pos-1-com-1-com-1";
+$per-13-pos-1-com-1-com-1-rep (to: $per-13-pos-1-com-1, content: $per-13-pos-1-com-1-com-1, by: $per-13) isa reply;
+$per-13-pos-1-rea-1 (emotion: $emo-6, to: $per-13-pos-1, by: $per-11) isa reaction;
+$per-13-pos-1-rea-2 (emotion: $emo-1, to: $per-13-pos-1, by: $per-12) isa reaction;
+
+$per-13-pos-2 isa photo, has file "$per-13-pos-2-file", has caption "$per-13-pos-2-caption", has identifier "$per-13-pos-2";
+$per-13-pos-2-sha (content: $per-13-pos-2, by: $per-13, in: $tim-13, with: $per-11) isa inclusive-sharing;
+$per-13-pos-2-com-1 isa comment, has content "$per-13-pos-2-com-1-content", has identifier "$per-13-pos-2-com-1";
+$per-13-pos-2-com-1-rep (to: $per-13-pos-2, content: $per-13-pos-2-com-1, by: $per-11) isa reply;
+$per-13-pos-2-com-1-com-1 isa comment, has content "$per-13-pos-2-com-1-com-1-content", has identifier "$per-13-pos-2-com-1-com-1";
+$per-13-pos-2-com-1-com-1-rep (to: $per-13-pos-2-com-1, content: $per-13-pos-2-com-1-com-1, by: $per-13) isa reply;
+$per-13-pos-2-rea-1 (emotion: $emo-4, to: $per-13-pos-2, by: $per-11) isa reaction;
+
+$per-13-pos-3 isa video, has file "$per-13-pos-3-file", has caption "$per-13-pos-3-caption", has identifier "$per-13-pos-3";
+$per-13-pos-3-sha (content: $per-13-pos-3, by: $per-13, in: $tim-13) isa friends-sharing;
+$per-13-pos-3-com-1 isa comment, has content "$per-13-pos-3-com-1-content", has identifier "$per-13-pos-3-com-1";
+$per-13-pos-3-com-1-rep (to: $per-13-pos-3, content: $per-13-pos-3-com-1, by: $per-12) isa reply;
+$per-13-pos-3-com-1-com-1 isa comment, has content "$per-13-pos-3-com-1-com-1-content", has identifier "$per-13-pos-3-com-1-com-1";
+$per-13-pos-3-com-1-com-1-rep (to: $per-13-pos-3-com-1, content: $per-13-pos-3-com-1-com-1, by: $per-13) isa reply;
+$per-13-pos-3-com-2 isa comment, has content "$per-13-pos-3-com-2-content", has identifier "$per-13-pos-3-com-2";
+$per-13-pos-3-com-2-rep (to: $per-13-pos-3, content: $per-13-pos-3-com-2, by: $per-11) isa reply;
+$per-13-pos-3-rea-1 (emotion: $emo-4, to: $per-13-pos-3, by: $per-12) isa reaction;
+
+$per-13-pos-4 isa status-update, has content "$per-13-pos-4-content", has identifier "$per-13-pos-4";
+$per-13-pos-4-sha (content: $per-13-pos-4, by: $per-13, in: $tim-13) isa friends-sharing;
+$per-13-pos-4-com-1 isa comment, has content "$per-13-pos-4-com-1-content", has identifier "$per-13-pos-4-com-1";
+$per-13-pos-4-com-1-rep (to: $per-13-pos-4, content: $per-13-pos-4-com-1, by: $per-11) isa reply;
+$per-13-pos-4-com-1-com-1 isa comment, has content "$per-13-pos-4-com-1-com-1-content", has identifier "$per-13-pos-4-com-1-com-1";
+$per-13-pos-4-com-1-com-1-rep (to: $per-13-pos-4-com-1, content: $per-13-pos-4-com-1-com-1, by: $per-13) isa reply;
+$per-13-pos-4-com-2 isa comment, has content "$per-13-pos-4-com-2-content", has identifier "$per-13-pos-4-com-2";
+$per-13-pos-4-com-2-rep (to: $per-13-pos-4, content: $per-13-pos-4-com-2, by: $per-12) isa reply;
+$per-13-pos-4-rea-1 (emotion: $emo-1, to: $per-13-pos-4, by: $per-12) isa reaction;
+$per-13-pos-4-rea-2 (emotion: $emo-1, to: $per-13-pos-4, by: $per-11) isa reaction;
+$per-13-pos-4-tag-1 (tagged: $per-11, in: $per-13-pos-4) isa tagging;
+####
+$per-13-pos-5 isa photo, has file "$per-13-pos-5-file", has caption "$per-13-pos-5-caption", has identifier "$per-13-pos-5";
+$per-13-pos-5-sha (content: $per-13-pos-5, by: $per-13, in: $tim-13) isa friends-sharing;
+$per-13-pos-5-com-1 isa comment, has content "$per-13-pos-5-com-1-content", has identifier "$per-13-pos-5-com-1";
+$per-13-pos-5-com-1-rep (to: $per-13-pos-5, content: $per-13-pos-5-com-1, by: $per-11) isa reply;
+$per-13-pos-5-com-1-com-1 isa comment, has content "$per-13-pos-5-com-1-com-1-content", has identifier "$per-13-pos-5-com-1-com-1";
+$per-13-pos-5-com-1-com-1-rep (to: $per-13-pos-5-com-1, content: $per-13-pos-5-com-1-com-1, by: $per-13) isa reply;
+$per-13-pos-5-rea-1 (emotion: $emo-5, to: $per-13-pos-5, by: $per-12) isa reaction;
+
+$per-13-pos-6 isa status-update, has content "$per-13-pos-6-content", has identifier "$per-13-pos-6";
+$per-13-pos-6-sha (content: $per-13-pos-6, by: $per-13, in: $tim-13) isa private-sharing;
+
+$per-13-pos-7 isa status-update, has content "$per-13-pos-7-content", has identifier "$per-13-pos-7";
+$per-13-pos-7-sha (content: $per-13-pos-7, by: $per-13, in: $tim-13, with: $per-12) isa inclusive-sharing;
+$per-13-pos-7-com-1 isa comment, has content "$per-13-pos-7-com-1-content", has identifier "$per-13-pos-7-com-1";
+$per-13-pos-7-com-1-rep (to: $per-13-pos-7, content: $per-13-pos-7-com-1, by: $per-12) isa reply;
+$per-13-pos-7-com-1-com-1 isa comment, has content "$per-13-pos-7-com-1-com-1-content", has identifier "$per-13-pos-7-com-1-com-1";
+$per-13-pos-7-com-1-com-1-rep (to: $per-13-pos-7-com-1, content: $per-13-pos-7-com-1-com-1, by: $per-13) isa reply;
+$per-13-pos-7-rea-1 (emotion: $emo-1, to: $per-13-pos-7, by: $per-12) isa reaction;
+$per-13-pos-7-tag-1 (tagged: $per-12, in: $per-13-pos-7) isa tagging;
+
+$per-13-pos-8 isa status-update, has content "$per-13-pos-8-content", has identifier "$per-13-pos-8";
+$per-13-pos-8-sha (content: $per-13-pos-8, by: $per-13, in: $tim-13, hidden-from: $per-12) isa friends-with-exclusion-sharing;
+$per-13-pos-8-com-1 isa comment, has content "$per-13-pos-8-com-1-content", has identifier "$per-13-pos-8-com-1";
+$per-13-pos-8-com-1-rep (to: $per-13-pos-8, content: $per-13-pos-8-com-1, by: $per-11) isa reply;
+$per-13-pos-8-com-1-com-1 isa comment, has content "$per-13-pos-8-com-1-com-1-content", has identifier "$per-13-pos-8-com-1-com-1";
+$per-13-pos-8-com-1-com-1-rep (to: $per-13-pos-8-com-1, content: $per-13-pos-8-com-1-com-1, by: $per-13) isa reply;
+$per-13-pos-8-rea-1 (emotion: $emo-1, to: $per-13-pos-8, by: $per-11) isa reaction;
+
+$per-13-pos-9 isa photo, has file "$per-13-pos-9-file", has caption "$per-13-pos-9-caption", has identifier "$per-13-pos-9";
+$per-13-pos-9-sha (content: $per-13-pos-9, by: $per-13, in: $tim-13) isa friends-sharing;
+$per-13-pos-9-com-1 isa comment, has content "$per-13-pos-9-com-1-content", has identifier "$per-13-pos-9-com-1";
+$per-13-pos-9-com-1-rep (to: $per-13-pos-9, content: $per-13-pos-9-com-1, by: $per-11) isa reply;
+$per-13-pos-9-com-1-com-1 isa comment, has content "$per-13-pos-9-com-1-com-1-content", has identifier "$per-13-pos-9-com-1-com-1";
+$per-13-pos-9-com-1-com-1-rep (to: $per-13-pos-9-com-1, content: $per-13-pos-9-com-1-com-1, by: $per-13) isa reply;
+$per-13-pos-9-rea-1 (emotion: $emo-6, to: $per-13-pos-9, by: $per-11) isa reaction;
+$per-13-pos-9-rea-2 (emotion: $emo-4, to: $per-13-pos-9, by: $per-12) isa reaction;
+
+$per-14-pos-1 isa status-update, has content "$per-14-pos-1-content", has identifier "$per-14-pos-1";
+$per-14-pos-1-sha (content: $per-14-pos-1, by: $per-14, in: $tim-14, hidden-from: $per-15) isa friends-with-exclusion-sharing;
+$per-14-pos-1-com-1 isa comment, has content "$per-14-pos-1-com-1-content", has identifier "$per-14-pos-1-com-1";
+$per-14-pos-1-com-1-rep (to: $per-14-pos-1, content: $per-14-pos-1-com-1, by: $per-16) isa reply;
+$per-14-pos-1-com-1-com-1 isa comment, has content "$per-14-pos-1-com-1-com-1-content", has identifier "$per-14-pos-1-com-1-com-1";
+$per-14-pos-1-com-1-com-1-rep (to: $per-14-pos-1-com-1, content: $per-14-pos-1-com-1-com-1, by: $per-14) isa reply;
+$per-14-pos-1-rea-1 (emotion: $emo-3, to: $per-14-pos-1, by: $per-16) isa reaction;
+
+$per-14-pos-2 isa status-update, has content "$per-14-pos-2-content", has identifier "$per-14-pos-2";
+$per-14-pos-2-sha (content: $per-14-pos-2, by: $per-14, in: $tim-14, with: $per-16) isa inclusive-sharing;
+$per-14-pos-2-com-1 isa comment, has content "$per-14-pos-2-com-1-content", has identifier "$per-14-pos-2-com-1";
+$per-14-pos-2-com-1-rep (to: $per-14-pos-2, content: $per-14-pos-2-com-1, by: $per-16) isa reply;
+$per-14-pos-2-com-1-com-1 isa comment, has content "$per-14-pos-2-com-1-com-1-content", has identifier "$per-14-pos-2-com-1-com-1";
+$per-14-pos-2-com-1-com-1-rep (to: $per-14-pos-2-com-1, content: $per-14-pos-2-com-1-com-1, by: $per-14) isa reply;
+$per-14-pos-2-rea-1 (emotion: $emo-2, to: $per-14-pos-2, by: $per-16) isa reaction;
+
+$per-14-pos-3 isa status-update, has content "$per-14-pos-3-content", has identifier "$per-14-pos-3";
+$per-14-pos-3-sha (content: $per-14-pos-3, by: $per-14, in: $tim-14) isa friends-sharing;
+$per-14-pos-3-com-1 isa comment, has content "$per-14-pos-3-com-1-content", has identifier "$per-14-pos-3-com-1";
+$per-14-pos-3-com-1-rep (to: $per-14-pos-3, content: $per-14-pos-3-com-1, by: $per-15) isa reply;
+$per-14-pos-3-com-1-com-1 isa comment, has content "$per-14-pos-3-com-1-com-1-content", has identifier "$per-14-pos-3-com-1-com-1";
+$per-14-pos-3-com-1-com-1-rep (to: $per-14-pos-3-com-1, content: $per-14-pos-3-com-1-com-1, by: $per-14) isa reply;
+$per-14-pos-3-com-2 isa comment, has content "$per-14-pos-3-com-2-content", has identifier "$per-14-pos-3-com-2";
+$per-14-pos-3-com-2-rep (to: $per-14-pos-3, content: $per-14-pos-3-com-2, by: $per-16) isa reply;
+$per-14-pos-3-rea-1 (emotion: $emo-3, to: $per-14-pos-3, by: $per-15) isa reaction;
+
+$per-14-pos-4 isa status-update, has content "$per-14-pos-4-content", has identifier "$per-14-pos-4";
+$per-14-pos-4-sha (content: $per-14-pos-4, by: $per-14, in: $tim-14) isa private-sharing;
+$per-14-pos-4-tag-1 (tagged: $per-15, in: $per-14-pos-4) isa tagging;
+
+$per-14-pos-5 isa status-update, has content "$per-14-pos-5-content", has identifier "$per-14-pos-5";
+$per-14-pos-5-sha (content: $per-14-pos-5, by: $per-14, in: $tim-14) isa friends-sharing;
+$per-14-pos-5-com-1 isa comment, has content "$per-14-pos-5-com-1-content", has identifier "$per-14-pos-5-com-1";
+$per-14-pos-5-com-1-rep (to: $per-14-pos-5, content: $per-14-pos-5-com-1, by: $per-15) isa reply;
+$per-14-pos-5-com-1-com-1 isa comment, has content "$per-14-pos-5-com-1-com-1-content", has identifier "$per-14-pos-5-com-1-com-1";
+$per-14-pos-5-com-1-com-1-rep (to: $per-14-pos-5-com-1, content: $per-14-pos-5-com-1-com-1, by: $per-14) isa reply;
+$per-14-pos-5-com-2 isa comment, has content "$per-14-pos-5-com-2-content", has identifier "$per-14-pos-5-com-2";
+$per-14-pos-5-com-2-rep (to: $per-14-pos-5, content: $per-14-pos-5-com-2, by: $per-16) isa reply;
+$per-14-pos-5-rea-1 (emotion: $emo-5, to: $per-14-pos-5, by: $per-16) isa reaction;
+$per-14-pos-5-rea-2 (emotion: $emo-2, to: $per-14-pos-5, by: $per-15) isa reaction;
+
+$per-14-pos-6 isa photo, has file "$per-14-pos-6-file", has caption "$per-14-pos-6-caption", has identifier "$per-14-pos-6";
+$per-14-pos-6-sha (content: $per-14-pos-6, by: $per-14, in: $tim-14, with: $per-16) isa inclusive-sharing;
+$per-14-pos-6-com-1 isa comment, has content "$per-14-pos-6-com-1-content", has identifier "$per-14-pos-6-com-1";
+$per-14-pos-6-com-1-rep (to: $per-14-pos-6, content: $per-14-pos-6-com-1, by: $per-16) isa reply;
+$per-14-pos-6-com-1-com-1 isa comment, has content "$per-14-pos-6-com-1-com-1-content", has identifier "$per-14-pos-6-com-1-com-1";
+$per-14-pos-6-com-1-com-1-rep (to: $per-14-pos-6-com-1, content: $per-14-pos-6-com-1-com-1, by: $per-14) isa reply;
+$per-14-pos-6-rea-1 (emotion: $emo-1, to: $per-14-pos-6, by: $per-16) isa reaction;
+
+$per-14-pos-7 isa video, has file "$per-14-pos-7-file", has caption "$per-14-pos-7-caption", has identifier "$per-14-pos-7";
+$per-14-pos-7-sha (content: $per-14-pos-7, by: $per-14, in: $tim-14) isa public-sharing;
+$per-14-pos-7-com-1 isa comment, has content "$per-14-pos-7-com-1-content", has identifier "$per-14-pos-7-com-1";
+$per-14-pos-7-com-1-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-1, by: $per-15) isa reply;
+$per-14-pos-7-com-1-com-1 isa comment, has content "$per-14-pos-7-com-1-com-1-content", has identifier "$per-14-pos-7-com-1-com-1";
+$per-14-pos-7-com-1-com-1-rep (to: $per-14-pos-7-com-1, content: $per-14-pos-7-com-1-com-1, by: $per-14) isa reply;
+$per-14-pos-7-com-2 isa comment, has content "$per-14-pos-7-com-2-content", has identifier "$per-14-pos-7-com-2";
+$per-14-pos-7-com-2-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-2, by: $per-10) isa reply;
+$per-14-pos-7-com-3 isa comment, has content "$per-14-pos-7-com-3-content", has identifier "$per-14-pos-7-com-3";
+$per-14-pos-7-com-3-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-3, by: $per-5) isa reply;
+$per-14-pos-7-com-3-com-1 isa comment, has content "$per-14-pos-7-com-3-com-1-content", has identifier "$per-14-pos-7-com-3-com-1";
+$per-14-pos-7-com-3-com-1-rep (to: $per-14-pos-7-com-3, content: $per-14-pos-7-com-3-com-1, by: $per-14) isa reply;
+$per-14-pos-7-com-4 isa comment, has content "$per-14-pos-7-com-4-content", has identifier "$per-14-pos-7-com-4";
+$per-14-pos-7-com-4-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-4, by: $per-1) isa reply;
+$per-14-pos-7-com-5 isa comment, has content "$per-14-pos-7-com-5-content", has identifier "$per-14-pos-7-com-5";
+$per-14-pos-7-com-5-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-5, by: $per-11) isa reply;
+$per-14-pos-7-com-5-com-1 isa comment, has content "$per-14-pos-7-com-5-com-1-content", has identifier "$per-14-pos-7-com-5-com-1";
+$per-14-pos-7-com-5-com-1-rep (to: $per-14-pos-7-com-5, content: $per-14-pos-7-com-5-com-1, by: $per-14) isa reply;
+$per-14-pos-7-com-6 isa comment, has content "$per-14-pos-7-com-6-content", has identifier "$per-14-pos-7-com-6";
+$per-14-pos-7-com-6-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-6, by: $per-9) isa reply;
+$per-14-pos-7-com-7 isa comment, has content "$per-14-pos-7-com-7-content", has identifier "$per-14-pos-7-com-7";
+$per-14-pos-7-com-7-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-7, by: $per-8) isa reply;
+$per-14-pos-7-com-7-com-1 isa comment, has content "$per-14-pos-7-com-7-com-1-content", has identifier "$per-14-pos-7-com-7-com-1";
+$per-14-pos-7-com-7-com-1-rep (to: $per-14-pos-7-com-7, content: $per-14-pos-7-com-7-com-1, by: $per-14) isa reply;
+$per-14-pos-7-com-8 isa comment, has content "$per-14-pos-7-com-8-content", has identifier "$per-14-pos-7-com-8";
+$per-14-pos-7-com-8-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-8, by: $per-13) isa reply;
+$per-14-pos-7-com-9 isa comment, has content "$per-14-pos-7-com-9-content", has identifier "$per-14-pos-7-com-9";
+$per-14-pos-7-com-9-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-9, by: $per-2) isa reply;
+$per-14-pos-7-com-9-com-1 isa comment, has content "$per-14-pos-7-com-9-com-1-content", has identifier "$per-14-pos-7-com-9-com-1";
+$per-14-pos-7-com-9-com-1-rep (to: $per-14-pos-7-com-9, content: $per-14-pos-7-com-9-com-1, by: $per-14) isa reply;
+$per-14-pos-7-com-10 isa comment, has content "$per-14-pos-7-com-10-content", has identifier "$per-14-pos-7-com-10";
+$per-14-pos-7-com-10-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-10, by: $per-3) isa reply;
+$per-14-pos-7-com-11 isa comment, has content "$per-14-pos-7-com-11-content", has identifier "$per-14-pos-7-com-11";
+$per-14-pos-7-com-11-rep (to: $per-14-pos-7, content: $per-14-pos-7-com-11, by: $per-7) isa reply;
+$per-14-pos-7-com-11-com-1 isa comment, has content "$per-14-pos-7-com-11-com-1-content", has identifier "$per-14-pos-7-com-11-com-1";
+$per-14-pos-7-com-11-com-1-rep (to: $per-14-pos-7-com-11, content: $per-14-pos-7-com-11-com-1, by: $per-14) isa reply;
+$per-14-pos-7-rea-1 (emotion: $emo-2, to: $per-14-pos-7, by: $per-12) isa reaction;
+$per-14-pos-7-rea-2 (emotion: $emo-4, to: $per-14-pos-7, by: $per-6) isa reaction;
+$per-14-pos-7-rea-3 (emotion: $emo-3, to: $per-14-pos-7, by: $per-16) isa reaction;
+$per-14-pos-7-rea-4 (emotion: $emo-4, to: $per-14-pos-7, by: $per-1) isa reaction;
+$per-14-pos-7-rea-5 (emotion: $emo-2, to: $per-14-pos-7, by: $per-13) isa reaction;
+$per-14-pos-7-rea-6 (emotion: $emo-5, to: $per-14-pos-7, by: $per-5) isa reaction;
+$per-14-pos-7-rea-7 (emotion: $emo-5, to: $per-14-pos-7, by: $per-3) isa reaction;
+$per-14-pos-7-tag-1 (tagged: $per-16, in: $per-14-pos-7) isa tagging;
+
+$per-14-pos-8 isa status-update, has content "$per-14-pos-8-content", has identifier "$per-14-pos-8";
+$per-14-pos-8-sha (content: $per-14-pos-8, by: $per-14, in: $tim-14) isa friends-sharing;
+$per-14-pos-8-com-1 isa comment, has content "$per-14-pos-8-com-1-content", has identifier "$per-14-pos-8-com-1";
+$per-14-pos-8-com-1-rep (to: $per-14-pos-8, content: $per-14-pos-8-com-1, by: $per-16) isa reply;
+$per-14-pos-8-com-1-com-1 isa comment, has content "$per-14-pos-8-com-1-com-1-content", has identifier "$per-14-pos-8-com-1-com-1";
+$per-14-pos-8-com-1-com-1-rep (to: $per-14-pos-8-com-1, content: $per-14-pos-8-com-1-com-1, by: $per-14) isa reply;
+$per-14-pos-8-rea-1 (emotion: $emo-5, to: $per-14-pos-8, by: $per-15) isa reaction;
+$per-14-pos-8-rea-2 (emotion: $emo-3, to: $per-14-pos-8, by: $per-16) isa reaction;
+
+$per-14-pos-9 isa photo, has file "$per-14-pos-9-file", has caption "$per-14-pos-9-caption", has identifier "$per-14-pos-9";
+$per-14-pos-9-sha (content: $per-14-pos-9, by: $per-14, in: $tim-14, with: $per-16) isa inclusive-sharing;
+$per-14-pos-9-com-1 isa comment, has content "$per-14-pos-9-com-1-content", has identifier "$per-14-pos-9-com-1";
+$per-14-pos-9-com-1-rep (to: $per-14-pos-9, content: $per-14-pos-9-com-1, by: $per-16) isa reply;
+$per-14-pos-9-com-1-com-1 isa comment, has content "$per-14-pos-9-com-1-com-1-content", has identifier "$per-14-pos-9-com-1-com-1";
+$per-14-pos-9-com-1-com-1-rep (to: $per-14-pos-9-com-1, content: $per-14-pos-9-com-1-com-1, by: $per-14) isa reply;
+$per-14-pos-9-rea-1 (emotion: $emo-4, to: $per-14-pos-9, by: $per-16) isa reaction;
+
+$per-14-pos-10 isa video, has file "$per-14-pos-10-file", has caption "$per-14-pos-10-caption", has identifier "$per-14-pos-10";
+$per-14-pos-10-sha (content: $per-14-pos-10, by: $per-14, in: $tim-14, hidden-from: $per-15) isa friends-with-exclusion-sharing;
+$per-14-pos-10-com-1 isa comment, has content "$per-14-pos-10-com-1-content", has identifier "$per-14-pos-10-com-1";
+$per-14-pos-10-com-1-rep (to: $per-14-pos-10, content: $per-14-pos-10-com-1, by: $per-16) isa reply;
+$per-14-pos-10-com-1-com-1 isa comment, has content "$per-14-pos-10-com-1-com-1-content", has identifier "$per-14-pos-10-com-1-com-1";
+$per-14-pos-10-com-1-com-1-rep (to: $per-14-pos-10-com-1, content: $per-14-pos-10-com-1-com-1, by: $per-14) isa reply;
+$per-14-pos-10-rea-1 (emotion: $emo-4, to: $per-14-pos-10, by: $per-16) isa reaction;
+$per-14-pos-10-tag-1 (tagged: $per-15, in: $per-14-pos-10) isa tagging;
+
+$per-15-pos-1 isa photo, has file "$per-15-pos-1-file", has caption "$per-15-pos-1-caption", has identifier "$per-15-pos-1";
+$per-15-pos-1-sha (content: $per-15-pos-1, by: $per-15, in: $tim-15) isa friends-sharing;
+$per-15-pos-1-com-1 isa comment, has content "$per-15-pos-1-com-1-content", has identifier "$per-15-pos-1-com-1";
+$per-15-pos-1-com-1-rep (to: $per-15-pos-1, content: $per-15-pos-1-com-1, by: $per-14) isa reply;
+$per-15-pos-1-com-1-com-1 isa comment, has content "$per-15-pos-1-com-1-com-1-content", has identifier "$per-15-pos-1-com-1-com-1";
+$per-15-pos-1-com-1-com-1-rep (to: $per-15-pos-1-com-1, content: $per-15-pos-1-com-1-com-1, by: $per-15) isa reply;
+$per-15-pos-1-rea-1 (emotion: $emo-3, to: $per-15-pos-1, by: $per-16) isa reaction;
+$per-15-pos-1-rea-2 (emotion: $emo-5, to: $per-15-pos-1, by: $per-14) isa reaction;
+
+$per-15-pos-2 isa video, has file "$per-15-pos-2-file", has caption "$per-15-pos-2-caption", has identifier "$per-15-pos-2";
+$per-15-pos-2-sha (content: $per-15-pos-2, by: $per-15, in: $tim-15, with: $per-14) isa inclusive-sharing;
+$per-15-pos-2-com-1 isa comment, has content "$per-15-pos-2-com-1-content", has identifier "$per-15-pos-2-com-1";
+$per-15-pos-2-com-1-rep (to: $per-15-pos-2, content: $per-15-pos-2-com-1, by: $per-14) isa reply;
+$per-15-pos-2-com-1-com-1 isa comment, has content "$per-15-pos-2-com-1-com-1-content", has identifier "$per-15-pos-2-com-1-com-1";
+$per-15-pos-2-com-1-com-1-rep (to: $per-15-pos-2-com-1, content: $per-15-pos-2-com-1-com-1, by: $per-15) isa reply;
+$per-15-pos-2-rea-1 (emotion: $emo-4, to: $per-15-pos-2, by: $per-14) isa reaction;
+
+$per-15-pos-3 isa video, has file "$per-15-pos-3-file", has caption "$per-15-pos-3-caption", has identifier "$per-15-pos-3";
+$per-15-pos-3-sha (content: $per-15-pos-3, by: $per-15, in: $tim-15, hidden-from: $per-16) isa friends-with-exclusion-sharing;
+$per-15-pos-3-com-1 isa comment, has content "$per-15-pos-3-com-1-content", has identifier "$per-15-pos-3-com-1";
+$per-15-pos-3-com-1-rep (to: $per-15-pos-3, content: $per-15-pos-3-com-1, by: $per-14) isa reply;
+$per-15-pos-3-com-1-com-1 isa comment, has content "$per-15-pos-3-com-1-com-1-content", has identifier "$per-15-pos-3-com-1-com-1";
+$per-15-pos-3-com-1-com-1-rep (to: $per-15-pos-3-com-1, content: $per-15-pos-3-com-1-com-1, by: $per-15) isa reply;
+$per-15-pos-3-rea-1 (emotion: $emo-6, to: $per-15-pos-3, by: $per-14) isa reaction;
+
+$per-15-pos-4 isa status-update, has content "$per-15-pos-4-content", has identifier "$per-15-pos-4";
+$per-15-pos-4-sha (content: $per-15-pos-4, by: $per-15, in: $tim-15) isa friends-sharing;
+$per-15-pos-4-com-1 isa comment, has content "$per-15-pos-4-com-1-content", has identifier "$per-15-pos-4-com-1";
+$per-15-pos-4-com-1-rep (to: $per-15-pos-4, content: $per-15-pos-4-com-1, by: $per-16) isa reply;
+$per-15-pos-4-com-1-com-1 isa comment, has content "$per-15-pos-4-com-1-com-1-content", has identifier "$per-15-pos-4-com-1-com-1";
+$per-15-pos-4-com-1-com-1-rep (to: $per-15-pos-4-com-1, content: $per-15-pos-4-com-1-com-1, by: $per-15) isa reply;
+$per-15-pos-4-com-2 isa comment, has content "$per-15-pos-4-com-2-content", has identifier "$per-15-pos-4-com-2";
+$per-15-pos-4-com-2-rep (to: $per-15-pos-4, content: $per-15-pos-4-com-2, by: $per-14) isa reply;
+$per-15-pos-4-rea-1 (emotion: $emo-1, to: $per-15-pos-4, by: $per-16) isa reaction;
+$per-15-pos-4-rea-2 (emotion: $emo-6, to: $per-15-pos-4, by: $per-14) isa reaction;
+$per-15-pos-4-tag-1 (tagged: $per-14, in: $per-15-pos-4) isa tagging;
+
+$per-16-pos-1 isa video, has file "$per-16-pos-1-file", has caption "$per-16-pos-1-caption", has identifier "$per-16-pos-1";
+$per-16-pos-1-sha (content: $per-16-pos-1, by: $per-16, in: $tim-16, hidden-from: $per-14) isa friends-with-exclusion-sharing;
+$per-16-pos-1-com-1 isa comment, has content "$per-16-pos-1-com-1-content", has identifier "$per-16-pos-1-com-1";
+$per-16-pos-1-com-1-rep (to: $per-16-pos-1, content: $per-16-pos-1-com-1, by: $per-15) isa reply;
+$per-16-pos-1-com-1-com-1 isa comment, has content "$per-16-pos-1-com-1-com-1-content", has identifier "$per-16-pos-1-com-1-com-1";
+$per-16-pos-1-com-1-com-1-rep (to: $per-16-pos-1-com-1, content: $per-16-pos-1-com-1-com-1, by: $per-16) isa reply;
+$per-16-pos-1-rea-1 (emotion: $emo-2, to: $per-16-pos-1, by: $per-15) isa reaction;
+
+$per-16-pos-2 isa status-update, has content "$per-16-pos-2-content", has identifier "$per-16-pos-2";
+$per-16-pos-2-sha (content: $per-16-pos-2, by: $per-16, in: $tim-16) isa private-sharing;
+
+$per-16-pos-3 isa status-update, has content "$per-16-pos-3-content", has identifier "$per-16-pos-3";
+$per-16-pos-3-sha (content: $per-16-pos-3, by: $per-16, in: $tim-16) isa friends-sharing;
+$per-16-pos-3-com-1 isa comment, has content "$per-16-pos-3-com-1-content", has identifier "$per-16-pos-3-com-1";
+$per-16-pos-3-com-1-rep (to: $per-16-pos-3, content: $per-16-pos-3-com-1, by: $per-14) isa reply;
+$per-16-pos-3-com-1-com-1 isa comment, has content "$per-16-pos-3-com-1-com-1-content", has identifier "$per-16-pos-3-com-1-com-1";
+$per-16-pos-3-com-1-com-1-rep (to: $per-16-pos-3-com-1, content: $per-16-pos-3-com-1-com-1, by: $per-16) isa reply;
+$per-16-pos-3-rea-1 (emotion: $emo-4, to: $per-16-pos-3, by: $per-15) isa reaction;
+$per-16-pos-3-rea-2 (emotion: $emo-3, to: $per-16-pos-3, by: $per-14) isa reaction;
+
+$per-16-pos-4 isa status-update, has content "$per-16-pos-4-content", has identifier "$per-16-pos-4";
+$per-16-pos-4-sha (content: $per-16-pos-4, by: $per-16, in: $tim-16, hidden-from: $per-14) isa friends-with-exclusion-sharing;
+$per-16-pos-4-com-1 isa comment, has content "$per-16-pos-4-com-1-content", has identifier "$per-16-pos-4-com-1";
+$per-16-pos-4-com-1-rep (to: $per-16-pos-4, content: $per-16-pos-4-com-1, by: $per-15) isa reply;
+$per-16-pos-4-com-1-com-1 isa comment, has content "$per-16-pos-4-com-1-com-1-content", has identifier "$per-16-pos-4-com-1-com-1";
+$per-16-pos-4-com-1-com-1-rep (to: $per-16-pos-4-com-1, content: $per-16-pos-4-com-1-com-1, by: $per-16) isa reply;
+$per-16-pos-4-rea-1 (emotion: $emo-3, to: $per-16-pos-4, by: $per-15) isa reaction;
+$per-16-pos-4-tag-1 (tagged: $per-15, in: $per-16-pos-4) isa tagging;
