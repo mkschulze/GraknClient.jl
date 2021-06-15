@@ -482,12 +482,6 @@ function _thing_req(iid::String; kwargs...)
     )
 end
 
-function is_inferred_req(iid::String)
-    return _thing_req(iid;
-        thing_is_inferred_req = Proto.Thing_IsInferred_Req()
-    )
-end
-
 function get_has_req(iid::String, attribute_types::AbstractVector{Proto.Type})
     return _thing_req(iid;
         thing_get_has_req = Proto.Thing_GetHas_Req(; attribute_types)
